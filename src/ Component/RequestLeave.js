@@ -20,12 +20,19 @@ export default function RequestLeave() {
   const [reason, setReason] = useState("");
 
   const submitRequest = () => {
+
+    // finding the current days so that the applicaion date can be mentioned
+    var nowDate = new Date();
+    const temp = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate();
+    console.log(temp)
     Axios.post("http://localhost:3001/api/insertLeaveRequest", {
       // here new varaibles have created using old variable + adding e before the old variable
       empId: empId,
       department: department,
       leaveType: leaveType,
-      applicationDate: applicationDate,
+
+      // here date is the variable that holds the current value of date in the year-month-date
+      applicationDate: temp,
       fromDate: fromDate,
       toDate: toDate,
       totalDays: totalDays,
