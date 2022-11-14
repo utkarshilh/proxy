@@ -17,10 +17,18 @@ export default function AllRequestForHod() {
         );
     }, []);
 
-    const iwas = () => {
-        const nowDate = new Date();
-        const date = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate();
-        console.log(date);
+    const requestAccepted = () => {
+        console.log("the current request is approved")
+
+        //     Axios.post("http://localhost:3001/api/finalVerdict", 'Accepted').then(() => {
+        //   alert("successful Accepted");
+        // });
+    }
+    const requestRejected = () => {
+        // console.log("the current request")
+        // Axios.post("http://localhost:3001/api/finalVerdict", 'Rejected').then(() => {
+        //     alert("successful Rejected");
+        //   });
 
     }
     return (
@@ -29,6 +37,8 @@ export default function AllRequestForHod() {
             {allRequestForHod.map((val) => {
                 return (
                     <div>
+
+
                         {/* <p> empID : {val.empId} || reason :{val.reason}</p>
                         <button>Accept</button>
                         <button>Reject`1`</button> */}
@@ -40,24 +50,24 @@ export default function AllRequestForHod() {
                             <div className="card-body">
                                 <h5 className="card-title">{val.reason}</h5>
                                 <p className="card-text">From {val.fromDate} To {val.toDate} </p>
-                                <button type="button" className="btn btn-success" onClick={iwas}>Accept</button>
-                                <button type="button" className="btn btn-danger">Reject</button>
+                                <button type="button" className="btn btn-success" onClick={requestAccepted}>Accept</button>
+                                <button type="button" className="btn btn-danger" onClick={requestRejected}>Reject</button>
 
                             </div>
                             <div className="card-footer text-muted">
-
                                 applied on {val.applicationDate}
-
-
-
-
                             </div>
                             <br />
                         </div>
+
+
+
                     </div>
 
                 )
             })}
-        </div >
+        </div>
     )
 }
+
+
