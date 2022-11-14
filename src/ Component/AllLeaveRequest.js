@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from 'react'
 import Axios from "axios";
 export default function AllLeaveRequest() {
-    const [empId, department, leaveType, applicationDate, fromDate, toDate, totalDays, reason] = useState("");
+    const [empId, department, leaveType, applicationDate, fromDate, toDate, totalDays, reason, status] = useState("");
     const [allRequestedLeaveList, setAllRequestedLeaveList] = useState([]);
 
 
@@ -41,7 +41,7 @@ export default function AllLeaveRequest() {
             <h1>all Requested Leave</h1>
             {allRequestedLeaveList.map((val) => {
                 return (
-                    <p> empID : {val.empId} || reason :{val.reason}</p>
+                    <p> empID : {val.empId} || reason :{val.reason} || status : {val.status}</p>
 
                 )
             })}
