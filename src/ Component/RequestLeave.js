@@ -43,7 +43,7 @@ export default function RequestLeave() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Leave Request</h1>
 
       <form className="ml-2 mr-2 w">

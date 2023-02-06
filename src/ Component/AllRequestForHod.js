@@ -10,25 +10,34 @@ export default function AllRequestForHod() {
             (response) => {
 
                 setAllRequestForHod(response.data);
-                console.log(response.data);
+                // console.log(response.data);
 
 
             }
         );
     }, []);
 
-    const requestAccepted = () => {
+    const requestAccepted = (id) => {
+        console.log(id)
         console.log("the current request is approved")
 
-        //     Axios.post("http://localhost:3001/api/finalVerdict", 'Accepted').then(() => {
-        //   alert("successful Accepted");
-        // });
+        Axios.post("http://localhost:3001/api/setFinalVerdict", {
+            id: id,
+            currentstatus: "Accepted"
+        }).then(() => {
+            alert("successful Accepted");
+        });
     }
-    const requestRejected = () => {
+    const requestRejected = (id) => {
+        // console.log(props)
+
         // console.log("the current request")
-        // Axios.post("http://localhost:3001/api/finalVerdict", 'Rejected').then(() => {
-        //     alert("successful Rejected");
-        //   });
+        Axios.post("http://localhost:3001/api/setFinalVerdict", {
+            id: id,
+            currentstatus: "Rejected"
+        }).then(() => {
+            alert("successful Rejected");
+        });
 
     }
     return (
@@ -36,7 +45,7 @@ export default function AllRequestForHod() {
             <h1>All Request</h1>
             {allRequestForHod.map((val) => {
                 return (
-                    <div>
+                    <div className='container'>
 
 
                         {/* <p> empID : {val.empId} || reason :{val.reason}</p>
@@ -49,9 +58,12 @@ export default function AllRequestForHod() {
                             </div>
                             <div className="card-body">
                                 <h5 className="card-title">{val.reason}</h5>
+                                <h1 className='card-text'> RequestId : {val.requestId}</h1>
                                 <p className="card-text">From {val.fromDate} To {val.toDate} </p>
-                                <button type="button" className="btn btn-success" onClick={requestAccepted}>Accept</button>
-                                <button type="button" className="btn btn-danger" onClick={requestRejected}>Reject</button>
+
+                                <button type="button" className="btn btn-success" onClick={() => { requestAccepted(val.requestId) }} >Accept</button>
+                                <button type="button" className="btn btn-danger" onClick={() => { requestRejected(val.requestId) }} >Reject</button>
+
 
                             </div>
                             <div className="card-footer text-muted">

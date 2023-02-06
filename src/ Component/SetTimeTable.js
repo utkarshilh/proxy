@@ -76,6 +76,7 @@ export default function SetTimeTable() {
                                 <option value="Thrusday">Thrusday</option>
                                 <option value="Friday">Friday</option>
                                 <option value="Saturday">Saturday</option>
+
                             </select>
                         </div>
 

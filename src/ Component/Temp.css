@@ -1,7 +1,41 @@
-.card{
-  border: 2px solid black;
-  height: 139px;
-  width: 166p;
+body {
+  padding: 1em;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 500;
   text-align: center;
-  background-color: yellowgreen;
+  margin-bottom: 1em;
+  margin-right: 1em;
+  padding: 0;
+}
+
+button {
+  appearance: none;
+  background-color: #246bec;
+  border: 1px solid #246bec;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: block;
+  font-size: 2em;
+  font-weight: 500;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  padding: .5em;
+  width: 100%;
+  transition: border-color, background-color 300ms ease-in-out;
+}
+
+button:focus {
+  border-color: #00006D;
+}
+
+button:hover {
+  background-color: #0B52D3;
+}
+
+button:active {
+  background-color: #00006D;
 }

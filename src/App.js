@@ -1,11 +1,13 @@
 
-import RequestLeave from './ Component/RequestLeave';
-import AllLeaveRequest from './ Component/AllLeaveRequest';
-import AllRequestForHod from './ Component/AllRequestForHod';
-import SetTimeTable from './ Component/SetTimeTable';
+// import RequestLeave from './ Component/RequestLeave';
+// import AllLeaveRequest from './ Component/AllLeaveRequest';
+// import AllRequestForHod from './ Component/AllRequestForHod';
+// import SetTimeTable from './ Component/SetTimeTable';
+import Severalpage from './ Component/Severalpage';
 
-// import Temp from './ Component/Temp'
+
 import './App.css';
+// import SeeTimeTable from './ Component/SeeTimeTable';
 
 
 function App() {
@@ -22,10 +24,13 @@ function App() {
       {/* <AllRequestForHod /> */}
 
       {/* set time table for individual people */}
-      <SetTimeTable />
+      {/* <SetTimeTable /> */}
 
       {/* <Temp /> */}
       {/* <h1>Hello how are you </h1> */}
+
+
+      <Severalpage />
     </div>
   );
 }
