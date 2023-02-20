@@ -1,40 +1,57 @@
+import React from 'react'
 
-// import RequestLeave from './ Component/RequestLeave';
-// import AllLeaveRequest from './ Component/AllLeaveRequest';
-// import AllRequestForHod from './ Component/AllRequestForHod';
-// import SetTimeTable from './ Component/SetTimeTable';
+import { useState } from 'react'
+
+import A from './ Component/A';
+import B from './ Component/B';
+import MainLogin from './ Component/MainLogin';
 import Severalpage from './ Component/Severalpage';
+import Navbar from './ Component/Navbar';
+import './App.css'
 
-
-import './App.css';
-// import SeeTimeTable from './ Component/SeeTimeTable';
 
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState("");
+  const [currentRole, setCurrentRole] = useState("");
+
+
+  const updateUser = (props) => {
+    console.log(" ta ta ta ")
+    console.log(JSON.stringify(props));
+
+
+    setCurrentUser(JSON.stringify(props.userName));
+    setCurrentRole(JSON.stringify(props.role));
+
+    console.log("current userName:" + JSON.stringify(currentUser));
+    console.log("current role : " + JSON.stringify(currentRole));
+
+
+
+
+  }
+
+  const changeLoginStatus = () => {
+
+    setIsAuthenticated(true);
+
+  }
+
+
   return (
-    <div className="App">
+    <div>
+      {
+        isAuthenticated ?
+          <Severalpage /> :
+          <MainLogin changeLoginStatus={changeLoginStatus} updateUser={updateUser} />
+      }
 
-      {/* live request for individual people */}
-      {/* <RequestLeave /> */}
-
-      {/* all leave request for individual people  */}
-      {/* <AllLeaveRequest /> */}
-
-      {/* all leave request for hod */}
-      {/* <AllRequestForHod /> */}
-
-      {/* set time table for individual people */}
-      {/* <SetTimeTable /> */}
-
-      {/* <Temp /> */}
-      {/* <h1>Hello how are you </h1> */}
-
-
-      <Severalpage />
     </div>
-  );
-}
 
-export default App;
+  )
+}
+export default App
 
 

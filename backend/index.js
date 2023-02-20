@@ -151,6 +151,7 @@ app.post('/api/setFinalVerdict', (req, res) => {
 // to get the time table of employee it will be modified later with current empId
 
 app.get('/api/seetimetable', (req, res) => {
+
     const id = 9211;
     const day = 'monday';
     const seeTimeTbl = "(select 'monday' as dday, nine, ten, eleven, twelve, one, two, three from monday where empId = 9211 union all select  'tuesday' as dday, nine, ten, eleven, twelve, one, two, three  from tuesday where empId = 9211 union all select  'wednesday' as dday, nine, ten, eleven, twelve, one, two, three  from wednesday where empId = 9211 union all select 'thursday' as dday, nine, ten, eleven, twelve, one, two, three  from thrusday where empId = 9211 union all select  'friday' as dday, nine, ten, eleven, twelve, one, two, three from friday where empId = 9211 union all select 'saturday' as dday, nine, ten, eleven, twelve, one, two, three from saturday where empId = 9211 )";
@@ -192,7 +193,43 @@ app.post('/api/setUser', (req, res) => {
 
     })
 
-    console.log(req.body);
+    // console.log(req.body);
 
+
+})
+
+
+//Login 
+app.post('/api/login', (req, res) => {
+    // console.log(req.body);
+    const userName = req.body.username;
+    const password = req.body.password;
+    const status = req.body.status;
+
+    const sqlLogin = "select * from loginPage where username = ? and role = ?"
+
+    db.query(sqlLogin, [userName, status], (err, result) => {
+        if (err) {
+            // console.log("sql error")
+            // console.log({ err: err });
+        }
+
+        if (result.length > 0) {
+            bcrypt.compare(password, result[0].password, (err, response) => {
+                if (response) {
+                    res.send(result);
+
+                }
+                else {
+                    // console.log("passoword error")
+                    res.send({ message: "something went wrong" });
+                }
+            })
+        }
+        else {
+            res.send({ message: "user doesn't exists" })
+        }
+
+    })
 
 })

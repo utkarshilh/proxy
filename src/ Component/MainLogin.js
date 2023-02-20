@@ -1,14 +1,62 @@
 import React from "react";
 import { useState } from 'react'
 
+import Axios from 'axios'
 
 
-export default function MainLogin() {
+
+export default function MainLogin(props) {
     const [usernameLog, setUsernameLog] = useState("")
     const [passwordLog, setPasswordLog] = useState("")
 
     const [role, setRole] = useState("")
 
+    const login = () => {
+        // console.log("this is happy happy")
+        // Axios.post("http://localhost3001/api/login", {
+        //     username: usernameLog,
+        //     password: passwordLog,
+        //     status: setRole
+        // }).then((response) => {
+        //     if (response.data.message)
+        //         alert("invalid credentials")
+        //     else {
+        //         console.log(Response);
+        //         setIsAuthenticated(true);
+        //     }
+        // })
+
+        Axios.post('http://localhost:3001/api/login', {
+            username: usernameLog,
+            password: passwordLog,
+            status: role
+        }).then((response) => {
+            if (response.data.message)
+                alert(response.data.message)
+            else {
+                console.log(response.data[0].username)
+                const temp = {
+                    userName: response.data[0].username,
+                    role: response.data[0].role
+                }
+                // setIsAuthenticated(true);
+                props.updateUser({
+                    userName: temp.userName,
+                    role: temp.role
+
+                })
+
+                // console.log("ye ho gaya na to bs ");
+                // console.log(JSON.stringify(temp));
+
+                props.changeLoginStatus();
+            }
+        }).catch((error) => {
+            // handle the rejected state
+            // console.log("helloe " + error);
+            alert(error)
+        });
+    }
     return (
         <div>
             <div className="form">
@@ -44,7 +92,7 @@ export default function MainLogin() {
                     </select>
                     <br />
                     <br />
-                    <button>Login</button>
+                    <button onClick={login}>Login</button>
                     <br />
                 </div>
             </div>
