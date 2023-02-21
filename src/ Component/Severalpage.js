@@ -5,7 +5,7 @@ import AllLeaveRequest from './AllLeaveRequest';
 import Navbar from './Navbar';
 import RequestLeave from './RequestLeave';
 import SetTimeTable from './SetTimeTable';
-import MainLogin from './MainLogin';
+
 import AllRequestForHod from './AllRequestForHod';
 import SeeTimeTable from './SeeTimeTable';
 import SetArrangement from './SetArrangement';
@@ -15,9 +15,7 @@ import SetUser from './SetUser';
 import A from './A'
 import B from './B'
 import Home from './Home';
-export default function Severalpage() {
-
-
+export default function Severalpage(props) {
 
     // const [isAuthenticated, setIsAuthenticated] = useState(false);
     // const [userName, setUserName] = useState("");
@@ -29,7 +27,7 @@ export default function Severalpage() {
         <Router>
             <Navbar />
             <Routes>
-                <Route exact path="/" element={<Home />}></Route>
+                <Route exact path="/" element={<Home updateUser={props} />}></Route>
                 <Route exact path="/requestleave" element={<RequestLeave />} />
                 <Route exact path="/allleaverequest" element={<AllLeaveRequest />} />
                 <Route exact path="/settimetable" element={<SetTimeTable />} />

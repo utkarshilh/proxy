@@ -22,14 +22,11 @@ function App() {
     console.log(JSON.stringify(props));
 
 
-    setCurrentUser(JSON.stringify(props.userName));
-    setCurrentRole(JSON.stringify(props.role));
+    setCurrentUser(props.userName);
+    setCurrentRole(props.role);
 
     console.log("current userName:" + JSON.stringify(currentUser));
     console.log("current role : " + JSON.stringify(currentRole));
-
-
-
 
   }
 
@@ -44,7 +41,7 @@ function App() {
     <div>
       {
         isAuthenticated ?
-          <Severalpage /> :
+          <Severalpage currentRole={currentRole} currentUser={currentUser} /> :
           <MainLogin changeLoginStatus={changeLoginStatus} updateUser={updateUser} />
       }
 
