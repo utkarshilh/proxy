@@ -7,7 +7,7 @@ import B from './ Component/B';
 import MainLogin from './ Component/MainLogin';
 import Severalpage from './ Component/Severalpage';
 import Navbar from './ Component/Navbar';
-import './App.css'
+import './ Component/App.css'
 
 
 
@@ -37,11 +37,18 @@ function App() {
   }
 
 
+  // this is for the button when the logout button that is present in the navbar is clicked
+  const LogoutButton = () => {
+    setIsAuthenticated(false);
+
+  }
+
+
   return (
     <div>
       {
         isAuthenticated ?
-          <Severalpage currentRole={currentRole} currentUser={currentUser} /> :
+          <Severalpage currentRole={currentRole} currentUser={currentUser} LogoutButton={LogoutButton} /> :
           <MainLogin changeLoginStatus={changeLoginStatus} updateUser={updateUser} />
       }
 

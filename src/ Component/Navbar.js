@@ -1,7 +1,18 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import logouticon from './logout icon.png'
 
-export default function Navbar() {
+export default function Navbar(props) {
+
+    const handleLogoutButton = () => {
+        // props.LogoutButton();
+        console.log(props);
+
+
+
+    }
+
+    console.log("inside navbar " + JSON.stringify(props.updateUser.currentRole))
     let g = 1
     return (
         <div>
@@ -23,10 +34,17 @@ export default function Navbar() {
 
 
                             <li className="nav-item"> <Link className="nav-link" to="/setarrangement">Set Arrangement</Link> </li>
-                            <li className="nav-item"> <Link className="nav-link" to="/setUser">Set User</Link> </li>
+
+                            {/* here condition is checked whether the current user is admin or not if the user is admin then only he or she be able to create new user */}
+                            {(props.updateUser.currentRole == "Admin") && (<li className="nav-item"> <Link className="nav-link" to="/setUser">Set User</Link> </li>)}
 
 
                         </ul>
+
+                        {/* <form class="form-inline my-2 my-lg-0"> */}
+
+                        <button className="btn btn-dark shadow-none"> <img src={logouticon} alt="..." class=" btn-outline-success my-2 my-sm-0 " onClick={handleLogoutButton} /></button>
+                        {/* </form> */}
 
                     </div>
                 </div>
