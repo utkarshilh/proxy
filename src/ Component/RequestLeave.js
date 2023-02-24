@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import Axios from "axios";
 
-export default function RequestLeave() {
-  const [empId, setEmpId] = useState("");
+export default function RequestLeave(props) {
+  console.log(props.updateUser);
+  const [empId, setEmpId] = useState(props.updateUser.currentUser);
 
   const [department, setDepartment] = useState("");
 
@@ -49,7 +50,7 @@ export default function RequestLeave() {
       <form className="ml-2 mr-2 w">
         {/* Empliyee id */}
 
-        <div className="form-group ">
+        {/* <div className="form-group ">
           <label htmlFor="InputEmpId">Employee Id</label>
           <input
             type="number"
@@ -63,7 +64,7 @@ export default function RequestLeave() {
               console.log(e.target.value);
             }}
           />
-        </div>
+        </div> */}
 
         {/* branch */}
         <div className="form-group ">

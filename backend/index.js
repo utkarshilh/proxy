@@ -26,14 +26,21 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 
 // to get all the leave request for employee level 
-app.get('/api/allRequestedLeave', (req, res) => {
-    const sqlSelect = "select * from LeaveRequest";
+app.get('/api/allRequestedLeave/:empId', (req, res) => {
+    console.log(" i was executednnnn")
 
-    db.query(sqlSelect, (err, result) => {
+
+
+    const empId = req.params.empId;
+    console.log("ss=" + empId);
+
+    const sqlSelect = "select * from LeaveRequest where empId= ? ";
+
+    db.query(sqlSelect, [empId], (err, result) => {
         if (err)
             console.log(err);
         else {
-            console.log("swadikha happy now")
+
             res.send(result);
         }
 
