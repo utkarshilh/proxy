@@ -89,7 +89,7 @@ export default function RequestLeave() {
 
         {/* leave type  */}
         <div className="form-group ">
-          <label htmlFor="InputEmpId">Branch</label>
+          <label htmlFor="InputEmpId">Leave Type</label>
           <br />
           <select
             name="leaveType"
