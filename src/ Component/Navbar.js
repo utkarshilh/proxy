@@ -2,11 +2,16 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import logouticon from './logout icon.png'
 
+
 export default function Navbar(props) {
 
+    console.log(props);
+
     const handleLogoutButton = () => {
-        // props.LogoutButton();
-        console.log(props);
+        props.updateUser.LogoutButton();
+        // console.log(props);
+
+        console.log(" i was not in the city")
 
 
 
