@@ -34,7 +34,6 @@ export default function AllLeaveRequest(props) {
             <h1>all Requested Leave</h1>
             {allRequestedLeaveList.map((val) => {
                 return (
-
                     <div>
                         <div style={{
                             display: 'flex',
