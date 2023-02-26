@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+#Proxy - A Leave Request and Teacher Arrangement Systemetting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
