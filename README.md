@@ -9,6 +9,6 @@ The first functionality of the project is the Leave Request System, which allows
 
 The second functionality of the project is the Teacher Arrangement System, which enables teachers to request other teachers to take their lectures. The Teacher Recommended System will suggest teachers who are free and teaching similar subjects, making it easier for teachers to manage their schedules. This system will reduce the workload of teachers and ensure that all classes are covered by an appropriate teacher.
 
-Overall, Proxy is a comprehensive solution that will revolutionize the academic system by simplifying the leave request process and making teacher arrangements more efficient. The project has been developed using React, a popular frontend library, and showcases the capabilities of modern web technologies.
+Overall, Proxy is a comprehensive solution that will revolutionize the academic system by simplifying the leave request process and making teacher arrangements more efficient. The project has been developed using React, a popular frontend library, and showcases the capabilities of modern web technologies..
 
 
