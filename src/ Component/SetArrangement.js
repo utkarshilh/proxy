@@ -1,29 +1,83 @@
-import React from 'react'
-import Temp from './Temp'
+import React, { useState } from 'react';
+import './SetArrangement.css';
 
+function SetArrangement() {
+    const [date, setDate] = useState("");
+    const [day, setDay] = useState("");
+    const [time, setTime] = useState("");
+    const [teachers, setTeachers] = useState([
+        { name: "John Doe", available: true },
+        { name: "Jane Smith", available: false },
+        { name: "Bob Johnson", available: true },
+        { name: "Sarah Lee", available: true },
+        { name: "Mike Chen", available: false },
+        { name: "Emily Wang", available: true },
+        { name: "utkarsh", available: true },
+        { name: "utkarsh", available: true }
+    ]);
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-export default function SetArrangement() {
+        // Use the date and time to create a date object
+        const [hours, minutes] = time.split(":");
+        const selectedDate = new Date(`${date} ${hours}:${minutes}`);
+
+        // Use the selected date to make an API request to get the available teachers
+        // Set the list of available teachers using setTeachers
+    };
 
     return (
+        <div className="container">
+            <form className="form" onSubmit={handleSubmit}>
+                <label className="label">Date</label>
+                <input
+                    className="input"
+                    type="date"
+                    value={date}
+                    onChange={(event) => setDate(event.target.value)}
+                />
 
-        <>
-            <div class="card text-center">
-                <div class="card-header">
-                    Featured
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <button className='btn-primary'>Go Somewhere</button>
-                </div>
-                <div class="card-footer text-muted">
-                    2 days ago
-                </div>
-            </div>
+                <label className="label">Day</label>
+                <input
+                    className="input"
+                    type="text"
+                    value={day}
+                    onChange={(event) => setDay(event.target.value)}
+                />
 
-            <Temp />
+                <label className="label">Time</label>
+                <input
+                    className="input"
+                    type="time"
+                    value={time}
+                    onChange={(event) => setTime(event.target.value)}
+                />
 
-        </>
-    )
+                <button className="button" type="submit">Find Available Teachers</button>
+            </form>
+
+            {teachers.length > 0 ? (
+                <div className="teacher-card-container">
+                    {teachers.map((teacher) => (
+                        <div>
+                            <div className="teacher-card" key={teacher.id}>
+                                <h3>{teacher.name}</h3>
+                                <p>Subject: {teacher.subject}</p>
+                                <p>Email: {teacher.email}</p>
+                                <p>Phone: {teacher.phone}</p>
+                                <button className='request-button' onClick={() => handleRequest(teacher.name)}>Request</button>
+
+                            </div>
+                            <br />
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <p>No available teachers.</p>
+            )}
+        </div>
+    );
 }
+
+export default SetArrangement;
