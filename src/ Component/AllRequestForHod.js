@@ -6,6 +6,7 @@ export default function AllRequestForHod() {
     const [allRequestForHod, setAllRequestForHod] = useState([]);
 
     useEffect(() => {
+        console.log("useEffect executed");
         Axios.get("http://localhost:3001/api/AllRequestForHod").then(
             (response) => {
 
@@ -25,7 +26,9 @@ export default function AllRequestForHod() {
             id: id,
             currentstatus: "Accepted"
         }).then(() => {
+
             alert("successful Accepted");
+            update();
         });
     }
     const requestRejected = (id) => {
@@ -37,8 +40,18 @@ export default function AllRequestForHod() {
             currentstatus: "Rejected"
         }).then(() => {
             alert("successful Rejected");
+            update();
         });
 
+    }
+
+    const update = () => {
+        console.log("update was executed");
+        Axios.get("http://localhost:3001/api/AllRequestForHod").then(
+            (response) => {
+
+                setAllRequestForHod(response.data);
+            })
     }
     return (
         <div>
