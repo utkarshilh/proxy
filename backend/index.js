@@ -157,12 +157,17 @@ app.post('/api/setFinalVerdict', (req, res) => {
 
 // to get the time table of employee it will be modified later with current empId
 
-app.get('/api/seetimetable', (req, res) => {
+app.get('/api/seetimetable/:empId', (req, res) => {
 
-    const id = 9211;
+    console.log("i was executed")
+
+    const empId = req.params.empId;
+    console.log("hello hello " + empId)
+
+    const id = req.params.empId;
     const day = 'monday';
-    const seeTimeTbl = "(select 'monday' as dday, nine, ten, eleven, twelve, one, two, three from monday where empId = 9211 union all select  'tuesday' as dday, nine, ten, eleven, twelve, one, two, three  from tuesday where empId = 9211 union all select  'wednesday' as dday, nine, ten, eleven, twelve, one, two, three  from wednesday where empId = 9211 union all select 'thursday' as dday, nine, ten, eleven, twelve, one, two, three  from thrusday where empId = 9211 union all select  'friday' as dday, nine, ten, eleven, twelve, one, two, three from friday where empId = 9211 union all select 'saturday' as dday, nine, ten, eleven, twelve, one, two, three from saturday where empId = 9211 )";
-    db.query(seeTimeTbl, (err, result) => {
+    const seeTimeTbl = "(select 'monday' as dday, nine, ten, eleven, twelve, one, two, three from monday where empId = ? union all select  'tuesday' as dday, nine, ten, eleven, twelve, one, two, three  from tuesday where empId = ? union all select  'wednesday' as dday, nine, ten, eleven, twelve, one, two, three  from wednesday where empId = ? union all select 'thursday' as dday, nine, ten, eleven, twelve, one, two, three  from thrusday where empId = ? union all select  'friday' as dday, nine, ten, eleven, twelve, one, two, three from friday where empId = ? union all select 'saturday' as dday, nine, ten, eleven, twelve, one, two, three from saturday where empId = ? )";
+    db.query(seeTimeTbl, [id, id, id, id, id, id], (err, result) => {
 
         if (err)
             console.log(err);
