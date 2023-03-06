@@ -62,13 +62,26 @@ function SetArrangement() {
                 // onChange={(event) => setDay(event.target.value)}
                 />
 
-                <label className="label">Time</label>
-                <input
+                <label className="label">Lecture</label>
+                {/* <input
                     className="input"
                     type="time"
                     value={time}
                     onChange={(event) => setTime(event.target.value)}
-                />
+                /> */}
+                <select name="" id="">
+                    <option value="" selected>Select</option>
+                    <option value="">09:00 AM - 10:00 AM</option>
+                    <option value="">10:00 AM - 11:00 AM</option>
+                    <option value="">11:00 AM - 12:00 PM</option>
+                    <option value="">12:00 PM - 01:00 PM</option>
+                    <option value="">01:00 PM - 02:00 PM</option>
+                    <option value="">02:00 PM - 03:00 PM</option>
+                    <option value="">03:00 PM - 04:00 PM </option>
+
+                </select>
+                <br />
+
 
                 <button className="button" type="submit">Find Available Teachers</button>
             </form>
