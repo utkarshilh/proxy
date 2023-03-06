@@ -1,8 +1,8 @@
 import { React, useEffect, useState } from 'react'
 import Axios from "axios";
 
-export default function SetTimeTable() {
-    const [empId, setEmpId] = useState("");
+export default function SetTimeTable(props) {
+    const [empId, setEmpId] = useState(props.updateUser.currentUser);
 
 
     const [day, setDay] = useState("");
@@ -24,9 +24,11 @@ export default function SetTimeTable() {
     const [three, setThree] = useState("");
 
     const submitTimeTable = () => {
-        console.log("this button was clicked")
 
         Axios.post("http://localhost:3001/api/setTimeTable", {
+
+
+
             // here new varaibles have created using old variable + adding e before the old variable
             empId: empId,
             day: day,
@@ -42,9 +44,6 @@ export default function SetTimeTable() {
 
         }).then(() => {
             alert("successful insert");
-
-
-
         });
         // console.log(empId + " " + day + " " + " " + nine + " " + ten + " " + eleven + " " + twelve + " " + one + " " + two + " " + three)
     }
