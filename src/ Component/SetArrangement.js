@@ -35,15 +35,31 @@ function SetArrangement() {
                     className="input"
                     type="date"
                     value={date}
-                    onChange={(event) => setDate(event.target.value)}
+                    onChange={
+                        (event) => {
+
+                            setDate(event.target.value)
+                            const dateObj = new Date(event.target.value);
+                            console.log(dateObj)
+                            const options = { weekday: 'long', timeZone: 'Asia/Kolkata' };
+                            const dayOfWeek = dateObj.toLocaleDateString('en-US', options);
+                            setDay(dayOfWeek)
+                            console.log(day)
+
+
+                        }
+
+                    }
                 />
 
                 <label className="label">Day</label>
                 <input
                     className="input"
                     type="text"
+                    // value={day}
                     value={day}
-                    onChange={(event) => setDay(event.target.value)}
+                    readOnly
+                // onChange={(event) => setDay(event.target.value)}
                 />
 
                 <label className="label">Time</label>
