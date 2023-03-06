@@ -2,7 +2,7 @@
 import { React, useEffect, useState } from 'react'
 import Axios from "axios";
 
-export default function SeeTimeTable() {
+export default function SeeTimeTable(props) {
     // const [dday, nine, ten, eleven, twelve, one, two, three] = useState("");
     // const [seeTimeTable, setSeeTimeTable] = useState([]);
 
@@ -18,12 +18,13 @@ export default function SeeTimeTable() {
     const [dday, nine, ten, eleven, twelve, one, two, three] = useState("");
     const [seeTimeTable, setSeeTimeTable] = useState([]);
 
+    const empId = props.updateUser.currentUser;
 
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/api/seetimetable").then(
+        Axios.get(`http://localhost:3001/api/seetimetable/${empId}`).then(
             (response) => {
-                console.log(response);
+
                 setSeeTimeTable(response.data);
             }
         );
@@ -60,16 +61,8 @@ export default function SeeTimeTable() {
                                 <td>{val.two}</td>
                                 <td>{val.three}</td>
                             </tr>
-
-
-
                         )
                     })}
-
-
-
-
-
                 </tbody>
             </table>
 
