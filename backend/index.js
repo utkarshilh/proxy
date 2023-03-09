@@ -230,7 +230,6 @@ app.post('/api/login', (req, res) => {
             bcrypt.compare(password, result[0].password, (err, response) => {
                 if (response) {
                     res.send(result);
-
                 }
                 else {
                     // console.log("passoword error")
@@ -245,3 +244,32 @@ app.post('/api/login', (req, res) => {
     })
 
 })
+
+
+// to find the the current section he is teachign according to his time table 
+
+app.post('/api/getTheSection', (req, res) => {
+
+
+    const empId = req.body.empId;
+    const lec = req.body.lec;
+    const day = req.body.day;
+
+
+    const sqlQuery = `select ${lec} from ${day} where empId=${empId}`
+    // "select ? from ? where empId=?";
+
+
+    db.query(sqlQuery, (err, result) => {
+        if (err)
+            console.log(err)
+        else {
+            res.send(result);
+        }
+    })
+
+
+    console.log(req.body)
+})
+
+
