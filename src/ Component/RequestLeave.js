@@ -20,7 +20,8 @@ export default function RequestLeave(props) {
 
   const [reason, setReason] = useState("");
 
-  const submitRequest = () => {
+  const submitRequest = (e) => {
+    e.preventDefault();
 
     // finding the current days so that the applicaion date can be mentioned
     var nowDate = new Date();
