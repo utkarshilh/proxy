@@ -273,3 +273,24 @@ app.post('/api/getTheSection', (req, res) => {
 })
 
 
+
+
+// get the teacher list for the arrangement 
+
+app.post("/api/getArrangement", (req, res) => {
+
+    const day = req.body.day;
+    const lecture = req.body.lecture;
+    const section = req.body.section;
+
+
+
+
+
+
+
+    console.log("request reacher to the backend")
+
+    res.send("hello hello");
+
+})

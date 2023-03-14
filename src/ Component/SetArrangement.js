@@ -33,6 +33,53 @@ function SetArrangement(props) {
         // Set the list of available teachers using setTeachers
     };
 
+    const handleAvailabeRequest = () => {
+
+        if (date == "") {
+            alert("date is not mentioned");
+
+        }
+        else if (day == "") {
+            alert("the day cannot be null");
+
+        }
+        else if (section == "") {
+            alert("the section cannot be null");
+        }
+        else if (lecture == "") {
+            alert("the lecture cannot be null");
+        }
+        else if (section == "") {
+            alert("section is not null");
+        }
+        else {
+
+            console.log("date = " + date);
+            console.log("day = " + day);
+
+            console.log("lecture" + lecture);
+            console.log("section" + section);
+            console.log("this is really not fair re you")
+
+            Axios.post('http://localhost:3001/api/getArrangement', {
+                day: day,
+                lecture: lecture,
+                section: section
+
+            }).then(
+                (response) => {
+
+
+                    console.log("the data is reached to the frontend");
+
+
+                }
+            );
+
+
+
+        }
+    }
     return (
         <div className="container">
             <form className="form" onSubmit={handleSubmit}>
@@ -120,7 +167,7 @@ function SetArrangement(props) {
                 // onChange={(event) => setDay(event.target.value)}
                 />
                 <br />
-                <button className="button" type="submit">Find Available Teachers</button>
+                <button className="button" type="submit" onClick={handleAvailabeRequest} >Find Available Teachers</button>
             </form>
 
             {teachers.length > 0 ? (
