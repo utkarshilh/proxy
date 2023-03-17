@@ -10,16 +10,18 @@ function SetArrangement(props) {
     const [lecture, setLecture] = useState("");
     const [section, setSection] = useState("");
 
-    const [teachers, setTeachers] = useState([
-        { name: "John Doe", available: true },
-        { name: "Jane Smith", available: false },
-        { name: "Bob Johnson", available: true },
-        { name: "Sarah Lee", available: true },
-        { name: "Mike Chen", available: false },
-        { name: "Emily Wang", available: true },
-        { name: "utkarsh", available: true },
-        { name: "utkarsh", available: true }
-    ]);
+    // const [teachers, setTeachers] = useState([
+    //     { name: "John Doe", available: true },
+    //     { name: "Jane Smith", available: false },
+    //     { name: "Bob Johnson", available: true },
+    //     { name: "Sarah Lee", available: true },
+    //     { name: "Mike Chen", available: false },
+    //     { name: "Emily Wang", available: true },
+    //     { name: "utkarsh", available: true },
+    //     { name: "utkarsh", available: true }
+    // ]);
+
+    const [teachers, setTeachers] = useState([]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -66,11 +68,12 @@ function SetArrangement(props) {
                 lecture: lecture,
                 section: section
 
+
             }).then(
                 (response) => {
 
 
-                    console.log("the data is reached to the frontend");
+                    setTeachers(response.data)
 
 
                 }
