@@ -12,7 +12,9 @@ export default function SetUser() {
 
     const navigate = useNavigate()
 
-    const register = () => {
+    const register = (e) => {
+        e.preventDefault();
+
         Axios.post("http://localhost:3001/api/setUser", {
             username: usernameReg,
             role: roleReg,
