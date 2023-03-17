@@ -283,14 +283,31 @@ app.post("/api/getArrangement", (req, res) => {
     const lecture = req.body.lecture;
     const section = req.body.section;
 
+    const query = `SELECT DISTINCT users.empId, users.name
+    FROM monday
+    INNER JOIN (
+        SELECT empId FROM (
+            SELECT empId, nine, ten, eleven, twelve, one, two, three FROM monday
+            UNION ALL SELECT empId, nine, ten, eleven, twelve, one, two, three FROM tuesday
+            UNION ALL SELECT empId, nine, ten, eleven, twelve, one, two, three FROM wednesday
+            UNION ALL SELECT empId, nine, ten, eleven, twelve, one, two, three FROM thrusday
+            UNION ALL SELECT empId, nine, ten, eleven, twelve, one, two, three FROM friday
+            UNION ALL SELECT empId, nine, ten, eleven, twelve, one, two, three FROM saturday
+        ) AS allTables
+        WHERE nine = '4A' OR ten = '4A' OR eleven = '4A' OR twelve = '4A' OR one = '4A' OR two = '4A' OR three = '4A'
+    ) AS matchedEmpIds
+    ON monday.empId = matchedEmpIds.empId
+    INNER JOIN users
+    ON monday.empId = users.empId
+    WHERE monday.nine = 'free';`
 
+    db.query(query, (err, result) => {
+        if (err)
+            console.log(err)
+        else {
+            res.send(result);
+        }
+    })
 
-
-
-
-
-    console.log("request reacher to the backend")
-
-    res.send("hello hello");
 
 })
