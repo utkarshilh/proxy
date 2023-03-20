@@ -29,3 +29,4 @@ package-lock.json
 package.json
 backend/package.json
 backend/package-lock.json
+backend/sqlCredentials.js

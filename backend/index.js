@@ -1,3 +1,5 @@
+var db = require('./sqlCredentials')
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt')
@@ -9,14 +11,6 @@ const app = express();
 
 const cors = require('cors');
 
-const db = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "Ishaan@123",
-    database: "proxy",
-
-
-})
 
 app.use(cors());
 app.use(express.json());
