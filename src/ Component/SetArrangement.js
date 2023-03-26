@@ -74,7 +74,7 @@ function SetArrangement(props) {
 
 
                     setTeachers(response.data)
-
+                    console.log(teachers[0])
 
                 }
             );
@@ -82,6 +82,18 @@ function SetArrangement(props) {
 
 
         }
+    }
+
+    const handleRequest = (index) => {
+
+
+        const updatedTeachers = [...teachers];
+        updatedTeachers[index].current_status = 'requested';
+
+
+        setTeachers(updatedTeachers);
+        console.log("updated teachers " + JSON.stringify(teachers))
+
     }
     return (
         <div className="container">
@@ -175,14 +187,14 @@ function SetArrangement(props) {
 
             {teachers.length > 0 ? (
                 <div className="teacher-card-container">
-                    {teachers.map((teacher) => (
+                    {teachers.map((teacher, index) => (
                         <div>
                             <div className="teacher-card" key={teacher.id}>
                                 <h3>{teacher.name}</h3>
                                 <p>Subject: {teacher.subject}</p>
                                 <p>Email: {teacher.email}</p>
                                 <p>Phone: {teacher.phone}</p>
-                                <button className='request-button' onClick={() => handleRequest(teacher.name)}>Request</button>
+                                <button className='request-button' onClick={() => handleRequest(index)}>{teacher.current_status}</button>
 
                             </div>
                             <br />
