@@ -294,7 +294,15 @@ app.post("/api/getArrangement", (req, res) => {
     // INNER JOIN users
     // ON monday.empId = users.empId
     // WHERE monday.nine = 'free';`
-    const query = `SELECT users.empId, users.name
+
+
+    // const query = `SELECT users.empId, users.name, NULL as current_status
+    // FROM ${day}
+    // JOIN users ON ${day}.empId = users.empId
+    // WHERE ${day}.${lecture} = 'free'`;
+
+
+    const query = `SELECT users.empId, users.name, 'Request' as current_status
     FROM ${day}
     JOIN users ON ${day}.empId = users.empId
     WHERE ${day}.${lecture} = 'free'`;
