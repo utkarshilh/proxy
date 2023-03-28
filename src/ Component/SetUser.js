@@ -6,6 +6,7 @@ import Axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
 export default function SetUser() {
+    const [name, setName] = useState("")
     const [usernameReg, setUsernameReg] = useState("")
     const [passwordReg, setPasswordReg] = useState("")
     const [roleReg, setRoleReg] = useState("")
@@ -16,9 +17,11 @@ export default function SetUser() {
         e.preventDefault();
 
         Axios.post("http://localhost:3001/api/setUser", {
+            name: name,
             username: usernameReg,
             role: roleReg,
             password: passwordReg
+
         }).then(() => {
             alert("successfull insert");
 
@@ -34,6 +37,17 @@ export default function SetUser() {
                     <br />
                     <br />
                     <h1>Register</h1>
+
+                    <label >Name</label>
+                    <br />
+                    <input type="text" placeholder='Name...'
+                        onChange={(e) => {
+                            setName(e.target.value)
+                            console.log(name)
+
+
+                        }} />
+                    <br />
 
                     <label >Username</label>
                     <br />

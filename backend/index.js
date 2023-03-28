@@ -153,7 +153,7 @@ app.post('/api/setFinalVerdict', (req, res) => {
 
 app.get('/api/seetimetable/:empId', (req, res) => {
 
-    console.log("i was executed")
+    // console.log("i was executed")
 
     const empId = req.params.empId;
     console.log("hello hello " + empId)
@@ -167,16 +167,17 @@ app.get('/api/seetimetable/:empId', (req, res) => {
             console.log(err);
         else {
             res.send(result);
-            console.log('yyy')
+            // console.log(result)
         }
     });
-    console.log(seeTimeTbl);
-    console.log('h');
+    // console.log(seeTimeTbl);
+    // console.log('h');
 })
 
 
 // Registartion section 
 app.post('/api/setUser', (req, res) => {
+    const name = req.body.name;
     const username = req.body.username;
     const password = req.body.password;
     const role = req.body.role;
@@ -187,8 +188,8 @@ app.post('/api/setUser', (req, res) => {
 
 
 
-        const sqlRegister = "INSERT INTO loginPage (username,password,role) VALUES(?,?,?)";
-        db.query(sqlRegister, [username, hash, role], (err, result) => {
+        const sqlRegister = "INSERT INTO loginPage (empId,name, password,role) VALUES(?,?,?,?)";
+        db.query(sqlRegister, [username, name, hash, role], (err, result) => {
             if (err)
                 console.log(err)
             else {
@@ -212,7 +213,7 @@ app.post('/api/login', (req, res) => {
     const password = req.body.password;
     const status = req.body.status;
 
-    const sqlLogin = "select * from loginPage where username = ? and role = ?"
+    const sqlLogin = "select * from loginPage where empId = ? and role = ?"
 
     db.query(sqlLogin, [userName, status], (err, result) => {
         if (err) {
@@ -223,6 +224,7 @@ app.post('/api/login', (req, res) => {
         if (result.length > 0) {
             bcrypt.compare(password, result[0].password, (err, response) => {
                 if (response) {
+                    console.log(result);
                     res.send(result);
                 }
                 else {
@@ -277,7 +279,7 @@ app.post("/api/getArrangement", (req, res) => {
     const lecture = req.body.lecture;
     const section = req.body.section;
 
-    // const query = `SELECT DISTINCT users.empId, users.name
+    // const query = `SELECT DISTINCT loginPage.empId, loginPage.name
     // FROM monday
     // INNER JOIN (
     //     SELECT empId FROM (
@@ -291,20 +293,20 @@ app.post("/api/getArrangement", (req, res) => {
     //     WHERE nine = '4A' OR ten = '4A' OR eleven = '4A' OR twelve = '4A' OR one = '4A' OR two = '4A' OR three = '4A'
     // ) AS matchedEmpIds
     // ON monday.empId = matchedEmpIds.empId
-    // INNER JOIN users
-    // ON monday.empId = users.empId
+    // INNER JOIN loginPage
+    // ON monday.empId = loginPage.empId
     // WHERE monday.nine = 'free';`
 
 
-    // const query = `SELECT users.empId, users.name, NULL as current_status
+    // const query = `SELECT loginPage.empId, loginPage.name, NULL as current_status
     // FROM ${day}
-    // JOIN users ON ${day}.empId = users.empId
+    // JOIN loginPage ON ${day}.empId = loginPage.empId
     // WHERE ${day}.${lecture} = 'free'`;
 
 
-    const query = `SELECT users.empId, users.name, 'Request' as current_status
+    const query = `SELECT loginPage.empId, loginPage.name, 'Request' as current_status
     FROM ${day}
-    JOIN users ON ${day}.empId = users.empId
+    JOIN loginPage ON ${day}.empId = loginPage.empId
     WHERE ${day}.${lecture} = 'free'`;
     console.log(query);
 
