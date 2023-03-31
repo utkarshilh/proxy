@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import './SetArrangement.css';
+import axios from 'axios';
 
 function SetArrangement(props) {
     console.log(props.updateUser.currentUser);
@@ -9,6 +10,7 @@ function SetArrangement(props) {
     const [day, setDay] = useState("");
     const [lecture, setLecture] = useState("");
     const [section, setSection] = useState("");
+    const [teachers, setTeachers] = useState([]);
 
     // const [teachers, setTeachers] = useState([
     //     { name: "John Doe", available: true },
@@ -21,7 +23,7 @@ function SetArrangement(props) {
     //     { name: "utkarsh", available: true }
     // ]);
 
-    const [teachers, setTeachers] = useState([]);
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -75,6 +77,7 @@ function SetArrangement(props) {
 
                     setTeachers(response.data)
                     console.log(teachers[0])
+                    console.log("this is response" + JSON.stringify(response))
 
                 }
             );
@@ -86,13 +89,47 @@ function SetArrangement(props) {
 
     const handleRequest = (index) => {
 
+        console.log("this is index " + index)
+        const currentDate = new Date(date);
+        const onlyDate = currentDate.getDate();
+        const month = currentDate.getMonth() + 1; // returns the month (0-11)
+        const year = currentDate.getFullYear(); // returns the year (four digits)
+
+        console.log("this is the current user that is being requestd", teachers[index])
+
+
+        const reqId = `${onlyDate < 10 ? '0' + onlyDate : onlyDate}${month < 10 ? '0' + month : month}${year}${props.updateUser.currentUser}${section}${lecture}`;
+
+        console.log(reqId);
+
+        Axios.post("http://localhost:3001/api/arrangementRequestIntoTable", {
+
+
+
+            // here new varaibles have created using old variable + adding e before the old variable
+            reqId: reqId,
+            empId: props.updateUser.currentUser,
+            otherEmpId: teachers[index].empId,
+            date: date,
+            lecture: lecture,
+            section, section,
+
+
+
+
+
+
+        }).then(() => {
+            alert("successful insert");
+        });
+
 
         const updatedTeachers = [...teachers];
         updatedTeachers[index].current_status = 'requested';
 
 
         setTeachers(updatedTeachers);
-        console.log("updated teachers " + JSON.stringify(teachers))
+
 
     }
     return (

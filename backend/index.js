@@ -212,17 +212,21 @@ app.post('/api/login', (req, res) => {
     const password = req.body.password;
     const status = req.body.status;
 
-    const sqlLogin = "select * from loginPage where username = ? and role = ?"
+
+
+
+    const sqlLogin = "select * from loginPage where empId = ? and role = ?"
 
     db.query(sqlLogin, [userName, status], (err, result) => {
         if (err) {
             // console.log("sql error")
-            // console.log({ err: err });
+            console.log({ err: err });
         }
 
         if (result.length > 0) {
             bcrypt.compare(password, result[0].password, (err, response) => {
                 if (response) {
+                    console.log("this is somethig good " + JSON.stringify(result));
                     res.send(result);
                 }
                 else {
@@ -301,10 +305,9 @@ app.post("/api/getArrangement", (req, res) => {
     // JOIN users ON ${day}.empId = users.empId
     // WHERE ${day}.${lecture} = 'free'`;
 
-
-    const query = `SELECT users.empId, users.name, 'Request' as current_status
+    const query = `SELECT loginPage.empId, loginPage.name, 'Request' as current_status
     FROM ${day}
-    JOIN users ON ${day}.empId = users.empId
+    JOIN loginPage ON ${day}.empId = loginPage.empId
     WHERE ${day}.${lecture} = 'free'`;
     console.log(query);
 
@@ -319,5 +322,84 @@ app.post("/api/getArrangement", (req, res) => {
         }
     })
 
+
+})
+
+
+// this is the section that is requesting currently
+app.post("/api/arrangementRequestIntoTable", (req, res) => {
+
+    const reqId = req.body.reqId;
+    const empId = req.body.empId;
+    const otherEmpId = req.body.otherEmpId;
+    const date = req.body.date;
+    const lecture = req.body.lecture;
+
+    const section = req.body.section;
+    const reason = " this is comming from the backend side and it is default value";
+
+    // const query = `INSERT INTO proxy.ArrangementMainRequest
+    // (requestId,empId,otherEmpId,forDate,section,lecture,reason) VALUES(?, ?,?,CURDATE(),?,?,?)`;
+
+    // db.query(query, [reqId, empId, otherEmpId, section, lecture, reason], (err, result) => {
+    //     if (err)
+    //         console.log(err);
+    //     else {
+    //         console.log(result);
+    //         res.send(result);
+    //     }
+    // })
+    const checkQuery = 'SELECT * FROM ArrangementMainRequest WHERE requestId = ? ';
+
+    // Check if the value already exists in the table
+    db.query(checkQuery, [reqId, empId, otherEmpId, section, lecture, reason], (err, result) => {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            if (!(result.length > 0)) {
+                // Value do not exists in the table, do nothing
+                const insertQuery = `INSERT INTO proxy.ArrangementMainRequest
+                (requestId,empId,otherEmpId,forDate,section,lecture,reason) VALUES(?, ?,?,?,?,?,?)`;
+                db.query(insertQuery, [reqId, empId, otherEmpId, date, section, lecture, reason], (err, result) => {
+                    if (err) {
+                        console.log(err);
+                        res.send(err);
+                    } else {
+                        console.log('Record inserted successfully');
+                        res.send('Record inserted successfully');
+                    }
+                });
+
+            }
+            // Value does not exist in the table, insert new record
+
+            //puting the request to the seconday table of arrangment Request table
+            const thisRequestId = reqId + otherEmpId;
+
+            const query = `INSERT INTO proxy.ArrangementRequestSecondary
+                (id,requestId,empId) VALUES(?,?,?)`;
+            db.query(query, [thisRequestId, reqId, empId,], (err, result) => {
+                if (err) {
+                    console.log(err);
+                    res.send(err);
+                } else {
+                    console.log('Record inserted successfully');
+                    res.send('Record inserted successfully');
+                }
+            });
+
+
+
+
+        }
+    });
+
+
+
+
+
+
+    console.log(reqId + " " + empId + " " + otherEmpId + " " + date + " " + lecture + " " + date + " " + lecture + " " + section);
 
 })
