@@ -46,7 +46,19 @@
   .form input[type="submit"]:hover {
     background-color: #0069d9;
   }
-  
+  .form button {
+    border: none;
+   
+    padding: 5px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius:5px ;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #008cba;
+  }
   .teacher-card-container {
     display: flex;
     flex-wrap: wrap;
@@ -85,7 +97,6 @@
 
     width: 260px;
   }
-  
   .teacher-card button:hover {
     background-color: #3e8e41;
   }
