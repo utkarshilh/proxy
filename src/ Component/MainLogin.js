@@ -36,9 +36,10 @@ export default function MainLogin(props) {
             if (response.data.message)
                 alert(response.data.message)
             else {
-                console.log(response.data[0].username)
+                console.log(response)
+                console.log(response.data[0].empId)
                 const temp = {
-                    userName: response.data[0].username,
+                    userName: response.data[0].empId,
                     role: response.data[0].role
                 }
                 // setIsAuthenticated(true);
