@@ -36,8 +36,7 @@ export default function MainLogin(props) {
             if (response.data.message)
                 alert(response.data.message)
             else {
-                console.log(response)
-                console.log(response.data[0].empId)
+                console.log("this is comming response " + response.data[0].username)
                 const temp = {
                     userName: response.data[0].empId,
                     role: response.data[0].role

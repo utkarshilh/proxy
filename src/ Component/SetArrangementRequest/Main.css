@@ -1,0 +1,76 @@
+
+   .request {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 800px;
+  }
+  
+  .request > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .request > div > span:first-child {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .request .reason {
+    margin-bottom: 10px;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+  
+  .request .section {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  .request .buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: auto;
+  }
+  
+  .request .buttons > button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    width: 100px;
+
+    
+  }
+
+  
+  .request .buttons > button.accept {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .request .buttons > button.reject {
+    background-color: #f44336;
+    color: white;
+  }
+
+
+  
+  @media (min-width: 300px) {
+    .request {
+      max-width: 90%;
+    }
+  }
+  
