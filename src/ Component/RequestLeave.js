@@ -66,9 +66,8 @@ export default function RequestLeave(props) {
             }}
           />
         </div> */}
-
-        {/* branch */}
-        <div className="form-group ">
+       {/* branch */}
+       <div className="form-group ">
           <label htmlFor="InputEmpId">Branch</label>
           <br />
           <select
@@ -88,6 +87,7 @@ export default function RequestLeave(props) {
             <option value="ME">ME</option>
           </select>
         </div>
+       
 
         {/* leave type  */}
         <div className="form-group ">
@@ -109,23 +109,7 @@ export default function RequestLeave(props) {
           </select>
         </div>
 
-        {/* application date */}
-        <div className="form-group ">
-          <label htmlFor="InputApplicationDate">ApplicationDate</label>
-          <input
-            type="date"
-            name="applicationDate"
-            onChange={(e) => {
-              setApplicationDate(e.target.value);
-              console.log(e.target.value);
-            }}
-            min={new Date().toISOString().split("T")[0]}
-            className="form-control"
-            id="InputApplicationDate"
-            aria-describedby="emailHelp"
-            placeholder="Input Date"
-          />
-        </div>
+       
 
         {/* from date */}
         <div className="form-group ">
@@ -161,21 +145,7 @@ export default function RequestLeave(props) {
           />
         </div>
 
-        {/* total Days */}
-        <div className="form-group">
-          <label htmlFor="InputDays">TotalDays</label>
-          <input
-            type="number"
-            name="totalDays"
-            onChange={(e) => {
-              setTotalDays(e.target.value);
-              console.log(e.target.value);
-            }}
-            className="form-control"
-            id="exampleInputPassword1"
-            placeholder="totalDays"
-          />
-        </div>
+      
 
         {/* Reason section  */}
         <div className="form-group">
