@@ -43,6 +43,8 @@ export default function Navbar(props) {
                             {/* here condition is checked whether the current user is admin or not if the user is admin then only he or she be able to create new user */}
                             {(props.updateUser.currentRole == "Admin") && (<li className="nav-item"> <Link className="nav-link" to="/setUser">Set User</Link> </li>)}
 
+                            <li className="nav-item"> <Link className="nav-link" to="/allArrangementRequest">All Arrangement Request</Link> </li>
+
 
                         </ul>
 

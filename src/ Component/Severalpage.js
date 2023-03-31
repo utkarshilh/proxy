@@ -12,6 +12,9 @@ import SetArrangement from './SetArrangement';
 import SetUser from './SetUser';
 
 
+import Main from './SetArrangementRequest/Main'
+
+
 import A from './A'
 import B from './B'
 import Home from './Home';
@@ -23,13 +26,14 @@ export default function Severalpage(props) {
     // const [userType, setUserType] = useState("");
 
     console.log("several page " + JSON.stringify(props))
-    
+
 
     return (
 
 
         <Router>
             <Navbar updateUser={props} />
+
             <Routes>
                 <Route exact path="/" element={<Home updateUser={props} />}></Route>
                 <Route exact path="/requestleave" element={<RequestLeave updateUser={props} />} />
@@ -39,8 +43,11 @@ export default function Severalpage(props) {
                 <Route exact path="/seetimetable" element={<SeeTimeTable updateUser={props} />} />
                 <Route exact path="/setarrangement" element={<SetArrangement updateUser={props} />} />
                 <Route exact path='/setUser' element={<SetUser updateUser={props} />}></Route>
+                <Route exact path='/ showArrangementRequest' element={<Main updateUser={props} />}></Route>
+                <Route exact path='/allArrangementRequest' element={<Main updateUser={props} />}></Route>
 
             </Routes>
+
         </Router>
 
 
