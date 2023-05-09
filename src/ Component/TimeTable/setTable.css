@@ -1,0 +1,119 @@
+.containerTable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   /* margin-top: 50px;
+    margin-left: 280px;*/
+    margin-top: 65px;
+    margin-left: 275px;
+    
+    
+  }
+  
+.card-body1{
+ 
+  width: 1220px;
+  overflow: auto;
+  margin-bottom: 30px;
+ 
+ border-radius: 10px;
+ /*box-shadow: 1px 1px 5px gainsboro inset;    box-shadow: 1px 1px 5px rgb(208, 207, 207) ;*/
+ text-align: center;
+ background-color: white;
+ 
+}
+#label{
+ 
+ margin-left: 0px;
+ 
+}
+
+  .formTable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    
+    box-shadow: 0 0 40px -10px rgba(0, 0,0, 0.25);
+    width: 1360px;
+    height: 690px;
+   /* width: 1200px;
+    height: 590px;*/
+    position: fixed;
+    padding-top: 10px;
+    
+  }
+  
+  
+  .formTable label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+   
+  }
+
+
+  .button1 {
+    background-color: #008CBA; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    
+  }
+  .button1:hover {
+    background-color: blue;
+  }
+  .formTable label{
+  border-left: 0px; 
+  }
+  .formTable select{
+    width: 559px;
+    height:60px ;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-family: "Times New Roman, Times, serif";
+    padding-left: 20px;
+    border: 1.5px solid  rgb(197, 217, 224);
+    margin-left: 0px;
+   
+
+}
+
+.form-group label{
+  margin: 0;
+  padding: 0;
+  font-weight: 0px;
+  color: rgb(120, 119, 119);
+  text-align: center;
+ }
+ .form-group {
+ 
+  text-align: left;
+ }
+
+  /* time table design */
+ .card-body1 table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .card-body1 table  td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    border-radius: 10px;
+  }
+  
+ /*control .card-body1 table  tr:hover {background-color: white;}*/
+  
+ 
+
+ 

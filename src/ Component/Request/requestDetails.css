@@ -1,0 +1,98 @@
+.containerRequestDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 65px;
+    margin-left: 275px;
+    
+    
+  }
+  
+  .formRequestDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    
+    box-shadow: 0 0 40px -10px rgba(0, 0,0, 0.25);
+    width: 1360px;
+    height: 690px;
+    position: fixed;
+    padding-top: 10px;
+    
+  }
+  .formSeeRequestDetails label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .card-bodyRequestDetails{
+    width: 1220px;
+ 
+  overflow: auto;
+  margin-bottom: 30px;
+ 
+ 
+ 
+ text-align: center;
+  
+   
+  }
+  .card-bodyRequestDetails table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .card-bodyRequestDetails table th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+   
+  }
+
+
+  .card-bodyRequestDetails table  tr:hover {background-color: rgb(245, 245, 252);}
+  .card-bodyRequestDetails table  tr{
+    
+    border: 0.1px solid gray;
+  
+    
+   
+  }
+
+  
+  .card-bodyRequestDetails table th {
+  background-color: rgb(215, 235, 242);
+  color: rgb(42, 40, 40);
+}
+
+
+
+.modelxy{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.model-contentxy{
+  width: 500px;
+  height: auto;
+  background-color: white;
+
+}
+
+
+.slide-container{
+  max-width: 1120px;
+  width: 100%;
+  background-color: red;
+  
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import logouticon from './logout icon.png'
 
+import useDrivePicker from 'react-google-drive-picker'
 
 export default function Navbar(props) {
 
@@ -49,8 +49,11 @@ export default function Navbar(props) {
                         </ul>
 
                         {/* <form class="form-inline my-2 my-lg-0"> */}
-
-                        <button className="btn btn-dark shadow-none"> <img src={logouticon} alt="..." class=" btn-outline-success my-2 my-sm-0 " onClick={handleLogoutButton} /></button>
+                        
+                        <button className="btn btn-dark shadow-none">
+                             <img src="https://drive.google.com/uc?export=view&id=17TPAHwzU4GuIPNZjYo2eOUa2SSzBMQ5o"
+                         style={{width:"20px", height:"20px", borderRadius:"50%"}} alt="..." class=" btn-outline-success my-2 my-sm-0 "
+                          onClick={handleLogoutButton} /></button>
                         {/* </form> */}
 
                     </div>
