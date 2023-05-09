@@ -1,0 +1,75 @@
+/* Top navbar start */
+nav{
+    background: black;
+    color: white;
+    height:60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+  }
+nav h1{
+    font-style: oblique;
+    font-size: 35px;
+    font-weight: bold;
+    padding: 0 100px;
+    line-height: 80px;
+
+   }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    100% {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+
+
+
+
+
+
+
+  /* 
+  .navbar {
+    display: flex;
+
+  }
+  
+  
+ 
+ 
+ aside {
+    height: 100vh;
+    background: gray;
+   width: 30%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   padding-top: 60px;
+   color: white;
+   z-index: -1;
+   overflow: scroll;
+ }
+ 
+ main {
+  
+    width: 1000px;
+    height: 800px;
+    margin-left: 10%;
+    margin-top:56px;
+    background-color: palevioletred;
+    overflow-y: scroll;
+  } */
+
+
+
+ 

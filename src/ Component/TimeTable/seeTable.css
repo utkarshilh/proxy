@@ -1,0 +1,98 @@
+.containerSeeTable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 65px;
+    margin-left: 275px;
+   
+    
+  }
+  
+  .formSeeTable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+   
+    box-shadow: 0 0 40px -10px rgba(0, 0,0, 0.25);
+    
+    width: 1360px;
+    height: 690px;
+    position: fixed;
+    padding-top: 10px;
+
+    border: 3px;
+    border-color: rgb(3, 109, 148);
+    border-style: solid;
+    border-bottom-color: white;
+    border-right-color: white;
+    
+  }
+  .formSeeTable label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .card-body2{
+    width: 1220px;
+    
+    border: 1px solid  rgb(213, 211, 211);
+    overflow: auto;
+    margin-bottom: 30px;
+   
+   border-radius: 10px;
+   
+   text-align: center;
+   
+  
+   
+  }
+
+  .card-body2 table {
+    border-collapse: collapse;
+    width: 100%;
+   
+  }
+  .card-body2 table  tr:hover
+   {
+    
+   
+    background-color: rgb(215, 235, 242);
+  
+   
+     }
+     
+  .card-body2 table th, td {
+    padding: 8px;  
+      text-align: left;
+    border-bottom: 1px solid white;
+  }
+
+  /*#f5f5f5 #ddd*/
+
+  .card-body2 table th {
+  background-color: rgb(215, 235, 242);
+  color: rgb(42, 40, 40);
+}
+
+
+
+
+.updatebtm:hover{
+  background-color: #45a049;
+}
+
+.updatebtm {
+  width: 100%;
+  background-color: #4caf50;
+  color:white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}

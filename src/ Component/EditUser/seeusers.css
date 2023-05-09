@@ -1,0 +1,78 @@
+.containerSeeUsers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 280px;
+    
+    
+  }
+  .formSeeUsers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    width: 1360px;
+    height: 690px;
+   
+    position: fixed;
+    padding-top: 10px;
+
+
+    border: 3px;
+    border-color: rgb(3, 109, 148);
+    border-style: solid;
+    border-bottom-color: white;
+    border-right-color: white;
+   
+    
+  }
+   
+  .formSeeUsers label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  #card-bodySeeUsers{
+    width: 1280px;
+    height: 500px;
+ 
+    overflow: auto;
+    margin-bottom: 30px;
+   
+   
+   box-shadow: 1px 1px 5px gainsboro inset;
+   text-align: center;
+  
+   
+  }
+  
+  #card-bodySeeUsers table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .Seetablecolheading{
+    height: 50px;
+    background-color: rgb(215, 235, 242);
+    color: rgb(42, 40, 40);
+    border: 2px solid grey;
+  }
+  .Seetablecol {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border: 1px solid grey;
+  }
+
+  #card-bodySeeUsers table  tr:hover
+  {background-color: rgb(215, 235, 242);
+    }
+
+  #card-bodySeeUsers table th {
+  background-color: rgb(215, 235, 242);
+  color: rgb(42, 40, 40);
+}

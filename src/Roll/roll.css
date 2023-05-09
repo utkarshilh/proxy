@@ -1,0 +1,226 @@
+body{
+    background: white;
+    font-family: sans-serif;
+    
+}/*   #fefefe*/
+.formRoll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    
+    box-shadow: 0 0 40px -10px rgba(0, 0,0, 0.25);
+    width: 1360px;
+    height: 690px;
+   
+   position: fixed;
+   margin-top: 0px;
+    border: 3px;
+    border-color: rgb(3, 109, 148);
+    border-style: solid;
+    border-bottom-color: white;
+    border-right-color: white;
+    border-left: white;
+    margin-top: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    margin-top: 65px;
+    margin-left: 295px;
+  }
+
+/*
+  .containerRoll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    margin-top: 65px;
+    margin-left: 275px;
+   
+  }*/
+
+
+
+.SubComponent{
+   /* width: 1360px;*/
+    height: 690px;
+ width: 100%;
+ margin-left: 50px;
+ /*height: 660px;*/
+ margin: 0px auto;
+ margin-top: 0px;
+background-color: white;
+padding-left: 200px;
+padding-bottom: 80px;
+}
+
+@media screen and (max-width:1000px){
+    .card{
+        width:40%;
+
+    }
+}
+@media screen and (max-width:768px){
+   #formRoll{
+        width: 100px;
+        left: 20px;
+    }
+    #SubComponent{
+      width: 100%;
+    }
+    .card{
+        width:100px;
+        
+    }
+}
+
+
+.row{
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+    margin-left: 100px;
+    height: 100%;
+    margin-top: 0px;
+    
+
+}
+.list{
+    white-space: 20%;
+}
+p{
+   
+    padding: 0;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 300;
+    font-family:  "Times New Roman", Times, serif;
+}
+
+
+.card{
+    display: flex;
+    width: 200px;
+   background-color: white;
+   
+   /* background: rgb(214, 243, 246);*/
+    border: 0px solid #ccc;
+   
+    margin-bottom: 0.3s;
+    border-radius: 20px;
+   /* border: 2px solid black;*/
+  
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+   height: 200px;
+   box-shadow: 0 0 40px -10px rgba(0, 0,0, 0.25);
+   /*box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);*/
+    
+   margin-top: 0px;
+   
+  
+}
+/* For start card folding  */
+.card .card__corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2em;
+    height: 2em;
+    background-color:  rgb(215, 235, 242);
+    }
+    
+    .card .card__corner .card__corner-triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 2em 2em 0;
+    border-color: transparent #d8dada transparent transparent;
+    }
+    
+    /* For end card folding  */
+
+/* button */
+.button4 {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+  }
+  
+  .button4:hover {background-color: #e7e7e7}
+
+  .button4 {
+    background-color: white; /* Green */
+    border: 1px;
+    color: white;
+    padding: 30px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+.card:hover {
+	/*background-color: gainsboro;*/
+    background-color:  rgb(215, 235, 242);
+    color:  rgb(6, 6, 138);
+   
+    
+  }
+  .profile:hover {
+	/*background-color: gainsboro;*/
+    background-color:  rgb(215, 235, 242);
+    color:  rgb(6, 6, 138);
+    
+  }
+ 
+.profile{
+    width: 200px;
+   height: 200px;
+   padding-top: 80%;
+  /* box-shadow: 1px 1px 5px gray inset ;*/
+    text-align: center;
+    font-size: 15px;
+   
+   align-items: center;
+   background-color: white;
+   margin-top: 0px;
+   
+
+}
+.icon{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    top: calc(35px);
+    left: calc(47% - 40px);
+    border-radius: 50% ;
+}
+.card:hover{
+    transform: scale(1.05);
+   /* box-shadow: 0 0 40px -10px rgba(0, 0,0, 0.25);*/
+    
+}
+/*  for responsive  */
+
+
+
+
+  
+  
+
+  
+  

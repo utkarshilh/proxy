@@ -1,0 +1,23 @@
+.cardView{
+    width:30%;
+    display:flex;
+    flex-direction: column;
+    border: 1px black solid;
+    align-content: center;
+    margin: 0 auto;
+}
+
+.card-headerView{
+    height: 15%;
+    background: #5d6770;
+    color: white;
+    text-align: center;
+}
+
+.card-headerView{
+    font-size: 30px;
+}
+
+.containerView{
+    padding: 4px 16px;
+}
