@@ -24,7 +24,6 @@ export default function SetTimeTable(props) {
     const [three, setThree] = useState("");
 
     const submitTimeTable = () => {
-
         Axios.post("http://localhost:3001/api/setTimeTable", {
 
 
@@ -264,6 +263,6 @@ export default function SetTimeTable(props) {
 
 
 
-        </div >
+        </div>
     )
 }

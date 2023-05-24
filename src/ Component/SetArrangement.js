@@ -47,12 +47,13 @@ function SetArrangement(props) {
             alert("the day cannot be null");
 
         }
-        else if (section == "") {
-            alert("the section cannot be null");
-        }
         else if (lecture == "") {
             alert("the lecture cannot be null");
         }
+        else if (section == "") {
+            alert("the section cannot be null");
+        }
+
         else if (section == "") {
             alert("section is not null");
         }
@@ -65,7 +66,7 @@ function SetArrangement(props) {
             console.log("section" + section);
             console.log("this is really not fair re you")
 
-            Axios.post('http://localhost:3001/api/getArrangement', {
+            Axios.post('api/getArrangement', {
                 day: day,
                 lecture: lecture,
                 section: section
@@ -73,12 +74,10 @@ function SetArrangement(props) {
 
             }).then(
                 (response) => {
-
-
+                    console.log("this is response " + JSON.stringify(response.data))
                     setTeachers(response.data)
-                    console.log(teachers[0])
-                    console.log("this is response" + JSON.stringify(response))
 
+                    console.log(teachers[0]);
                 }
             );
 
@@ -96,16 +95,9 @@ function SetArrangement(props) {
         const year = currentDate.getFullYear(); // returns the year (four digits)
 
         console.log("this is the current user that is being requestd", teachers[index])
-
-
         const reqId = `${onlyDate < 10 ? '0' + onlyDate : onlyDate}${month < 10 ? '0' + month : month}${year}${props.updateUser.currentUser}${section}${lecture}`;
-
         console.log(reqId);
-
-        Axios.post("http://localhost:3001/api/arrangementRequestIntoTable", {
-
-
-
+        Axios.post("api/arrangementRequestIntoTable", {
             // here new varaibles have created using old variable + adding e before the old variable
             reqId: reqId,
             empId: props.updateUser.currentUser,
@@ -113,16 +105,9 @@ function SetArrangement(props) {
             date: date,
             lecture: lecture,
             section, section,
-
-
-
-
-
-
         }).then(() => {
             alert("successful insert");
         });
-
 
         const updatedTeachers = [...teachers];
         updatedTeachers[index].current_status = 'requested';
@@ -174,7 +159,7 @@ function SetArrangement(props) {
                             setLecture(event.target.value);
 
 
-                            Axios.post("http://localhost:3001/api/getTheSection", {
+                            Axios.post("api/getTheSection", {
 
                                 empId: props.updateUser.currentUser,
                                 lec: event.target.value,
@@ -186,7 +171,7 @@ function SetArrangement(props) {
 
                             });
 
-                            console.log("happy birthday to you " + event.target.value);
+
                         }
                     }
                 >
@@ -228,9 +213,9 @@ function SetArrangement(props) {
                         <div>
                             <div className="teacher-card" key={teacher.id}>
                                 <h3>{teacher.name}</h3>
-                                <p>Subject: {teacher.subject}</p>
-                                <p>Email: {teacher.email}</p>
-                                <p>Phone: {teacher.phone}</p>
+                                {/* <p>Subject: {teacher.subject}</p> */}
+                                <p>Email: {teacher.Email}</p>
+                                <p>Phone: {teacher.ContactNo}</p>
                                 <button className='request-button' onClick={() => handleRequest(index)}>{teacher.current_status}</button>
 
                             </div>
