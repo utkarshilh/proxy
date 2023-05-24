@@ -29,7 +29,7 @@ function SeeAllUsers(props) {
   };
 
   return (
-    <div className="containerSeeUsers">
+    <div  className="containerSeeUsers" id="containerSeeUsers">
       <form className="formSeeUsers">
         <label className="label">
           <h1>

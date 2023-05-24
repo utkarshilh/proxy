@@ -61,7 +61,7 @@ import "./view.css";
               <br/>
               <br/>
 
-              <Link to="/">
+              <Link to="/editusers">
                  <button className="btn btn-edit">Go Back</button>
               </Link>
               

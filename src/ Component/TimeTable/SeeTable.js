@@ -69,14 +69,14 @@ let a=false;
   }
 
   return (
-    <div className="containerSeeTable">
-      <form className="formSeeTable">
+    <div className="containerSeeTable" id="containerSeeTable">
+      <form className="formSeeTable" id="formSeeTable">
         <label className="label">
           <h1>
             <strong>My Time Table..</strong>
           </h1>
         </label>
-        <label style={{marginLeft:'0px', width:'1219px', backgroundColor:'',}}>
+        <label className="Setnewtimetablelabel" id="Setnewtimetablelabel">
 
         <Link to="/settimetable">
                   <button className="btn btn-edit" style={{backgroundColor:'green'}}>+Set New TimeTable</button>
@@ -89,32 +89,32 @@ let a=false;
         
             <table className="tablesee">
             <tr>
-              <th scope="col">Day</th>
-              <th scope="col">09:00 AM - 10:00 AM</th>
-              <th scope="col">10:00 AM - 11:00 AM</th>
-              <th scope="col">11:00 AM- 12:00 PM</th>
-              <th scope="col">12:00 PM- 01:00 PM</th>
-              <th scope="col">01:00 PM- 02:00 PM</th>
-              <th scope="col">02:00 PM- 03:00 PM</th>
-              <th scope="col">03:00 PM- 04:00 PM</th>
-              <th scope="col">Action</th>
+              <th scope="col" className="colm"  >Day</th>
+              <th scope="col" className="colm" >09:00 AM - 10:00 AM</th>
+              <th scope="col" className="colm"  >10:00 AM - 11:00 AM</th>
+              <th scope="col" className="colm" >11:00 AM- 12:00 PM</th>
+              <th scope="col" className="colm"  >12:00 PM- 01:00 PM</th>
+              <th scope="col" className="colm"  >01:00 PM- 02:00 PM</th>
+              <th scope="col" className="colm"  >02:00 PM- 03:00 PM</th>
+              <th scope="col" className="colm"  >03:00 PM- 04:00 PM</th>
+              <th scope="col" className="colm" >Action</th>
             </tr>
 
             {seeTimeTable.map((val) => {
               return (
                 <tr>
-                  <td scope="row"><b>{val.dday}</b></td>
-                  <td>{val.nine}</td>
-                  <td>{val.ten}</td>
-                  <td>{val.eleven}</td>
-                  <td>{val.twelve}</td>
-                  <td>{val.one}</td>
-                  <td>{val.two}</td>
-                  <td>{val.three}</td>
-                  <td>
+                  <td scope="row" className="colm" ><b>{val.dday}</b></td>
+                  <td className="colm" >{val.nine}</td>
+                  <td className="colm">{val.ten}</td>
+                  <td className="colm">{val.eleven}</td>
+                  <td className="colm">{val.twelve}</td>
+                  <td className="colm">{val.one}</td>
+                  <td className="colm">{val.two}</td>
+                  <td className="colm">{val.three}</td>
+                  <td className="colm">
                            
                              <Link to={`/updatetable/${val.dday}`}>
-                                 <button className="btn btn-edit">Edit</button>
+                                 <button className="edit"> Edit </button>
                                 </Link>
                             </td>
                 </tr>

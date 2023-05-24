@@ -24,10 +24,10 @@ function Registration(props) {
     formData.append("role", role);
     formData.append("password", password);
     formData.append("Email", Email);
-    formData.append("Deparment", Department);
+    formData.append("Department", Department);
     formData.append("Gender", Gender);
     formData.append("empId", empId);
-    formData.append(" ContactNo", ContactNo);
+    formData.append("ContactNo", ContactNo);
     const config = {
       header: {
         "Content-Type": "multipart/form-data",
@@ -58,11 +58,11 @@ function Registration(props) {
 
         })
 
-    }*/
+   containerRegister }*/
   }
 
   return (
-    <div className="containerRegister">
+    <div className="">
       <form className="formRegister">
         <label className="label">
           <h1>
@@ -106,7 +106,7 @@ function Registration(props) {
               <label>Email</label>
               <br />
               <input
-                type="text"
+                type="email"
                 placeholder="Email..."
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -169,14 +169,29 @@ function Registration(props) {
               {/* For Depatment */}
               <label>Department</label>
               <br />
-              <input
+              {/*<input
                 type="text"
                 placeholder="Department..."
                 onChange={(e) => {
                   setDepartment(e.target.value);
                   console.log(Department);
                 }}
-              />
+              />*/}
+              
+              <select name="" id="" onChange={(e) => {
+                  setDepartment(e.target.value)
+                  console.log(Department)
+                }}>
+                  <option value="" selected>select</option>
+                  <option value="CSE">CS</option>
+                  <option value="IT">IT</option>
+                  <option value="EE">EE</option>
+                  <option value="EC">EC</option>
+                  <option value="ME">ME</option>
+                  <option value="CE">ME</option>
+
+                </select>
+
             </td>
             <td>
               {/*For  Role  */}

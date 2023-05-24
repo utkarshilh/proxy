@@ -6,13 +6,13 @@ export default function Request(props) {
 
   return (
     <body>
-      {/*<div className="containerRoll">*/}
-        <form className="formRoll" id="formRoll">
-          <div className="SubComponent" id="SubComponent">
+      {/*<div className="containerRoll">  className="formRoll" id="formRoll"    className="SubComponent" id="SubComponent"*/}
+        <form >
+          <div   className="SubComponent" id="SubComponent" >
             <div className="row">
-              <table>
+              <table id="Tableroll">
                 <tr style={{ border: "0px" }}>
-                  <td style={{ border: "0px" }}>
+                  <td className="TablData" style={{ border: "0px" }}>
                     <section class=" card">
                     <div class="card__corner">
                         <div class="card__corner-triangle"></div>
@@ -44,7 +44,7 @@ export default function Request(props) {
 
 
                   
-                  <td style={{ border: "0px" }}>
+                  <td className="TablData" style={{ border: "0px" }}>
                     <section class=" card">
                       <div class="card__corner">
                         <div class="card__corner-triangle"></div>
@@ -76,7 +76,7 @@ export default function Request(props) {
                   
                 </tr>
                 <tr style={{ border: "0px" }}>
-                  <td style={{ border: "0px" }}>
+                  <td className="TablData" style={{ border: "0px" }}>
                     <section class=" card">
                       <div class="card__corner">
                         <div class="card__corner-triangle"></div>
@@ -104,7 +104,7 @@ export default function Request(props) {
                       </Link>
                     </section>
                   </td>
-                  <td style={{ border: "0px" }}>
+                  <td className="TablData" style={{ border: "0px" }}>
                     <section class=" card">
                       <div class="card__corner">
                         <div class="card__corner-triangle"></div>

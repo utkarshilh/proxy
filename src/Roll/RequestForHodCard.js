@@ -67,7 +67,7 @@ function RequestForHodCard(props) {
                   <tr>
                     <td scope="col">
                       <h5 style={{ textAlign: "left" }}>
-                        <b>Request-User:</b>
+                        <b>Request-User:.</b>
                       </h5>
                     </td>
                     <td> {val.empId}
