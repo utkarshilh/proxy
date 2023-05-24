@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 //import Model from "./Model";
-//import "./model.css";
+import "./B.css";
 import Image from "./Image";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -97,9 +97,34 @@ const handleTypeSelect = e => {
   return (
   
     <div style={{width:'1550px', marginLeft:'210px', marginTop:'300px'}}>
-      
-      
-      <select
+
+
+
+
+
+
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <td>Column 1</td>
+        <td>Column 2</td>
+        <td>Column 3</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Data 1</td>
+        <td>Data 2</td>
+        <td>Data 3</td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
+
+      {/*<select
         options={options}
         onChange={handleTypeSelect}
         value={options.filter(function(option) {
@@ -170,7 +195,7 @@ request leave
 
 <Link className="nav-link" to="/request">
 request
-</Link>
+      </Link>*/}
   
       
     </div>

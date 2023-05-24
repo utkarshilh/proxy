@@ -64,12 +64,13 @@ export default function Severalpage(props) {
 
         <Router>
               <Dashboard updateUser={props} />
-            {/*  <Navbar updateUser={props} />  */}
+              {/*<Navbar updateUser={props} />  */}
             
 
             <Routes>
-                <Route exact path="/xyz" element={<B updateUser={props} />}></Route>
-                <Route exact path="/" element={<ControlHodAdmin updateUser={props} />}></Route>
+            <Route exact path="/" element={<MyProfile updateUser={props} />}></Route>
+                <Route exact path="/x" element={<B updateUser={props} />}></Route>
+                <Route exact path="/pqr" element={<ControlHodAdmin updateUser={props} />}></Route>
                 <Route exact path="/hod/:requestId" element={<RequestForHodCard updateUser={props} />}></Route>
                 <Route exact path="/profile" element={<MyProfile updateUser={props} />}></Route>
                

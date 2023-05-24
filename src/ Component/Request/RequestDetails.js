@@ -69,7 +69,7 @@ function RequestDetails(props) {
          <div className="card-headerView" style={{/* borderRadius:'0 0 0 50%'*/}}>
                 <label className="label">
                   <h1 style={{marginTop:'10px' }}>
-                    <strong>Request Details</strong>
+                    <strong>Request Details..</strong>
                   </h1>
                 </label>
          </div>

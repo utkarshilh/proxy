@@ -1,0 +1,92 @@
+ .formMyprofile {
+    margin-top: 65px;
+    margin-left: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color:white;
+    border-radius: 10px;
+    box-shadow: 0 0 40px -10px rgba(0, 0,0, 0.25);
+    /*width: 1360px;*/
+    width: 900px;
+    height: 695px;
+    position: fixed;
+    padding-top: 10px;
+    border: 3px;
+   /* border-color: rgb(3, 109, 148);
+    border-style: solid;
+    border-bottom-color: white;
+    border-right-color: white; */
+  }
+  
+.Myprofile{
+  background-color: white;
+  margin-top: 50px;
+  height: 580px;
+  width: 800px;
+}
+
+.headerView{
+ background-color: gray;
+ color: white;
+ height: 60px;
+ 
+}
+.Heading{
+  font-size: 35px;
+}
+.Title{
+ font-size: 25px;
+}
+.TitleResult{
+   font-size: 19px;
+   text-decoration: underline;
+  
+  
+}
+
+@media screen and (max-width: 576px) {
+  #Myprofile{
+   width: 180px;
+   height: 420px;
+   margin-top: 15px;
+   background-color: white;
+  }
+  .Heading{
+    font-size: 20px;
+  }
+  #Myprofile .headerView{
+    height: 38px;
+   
+  }
+  .Title{
+   font-size: 12px;
+  }
+  .TitleResult{
+     font-size: 10px; 
+  }
+  
+  .formMyprofile label {
+    font-size: 5px;
+    color: white;
+   
+  }
+  #formMyprofile{
+   margin-left: 159px;
+   width: 210px;
+   height: 400px;
+   margin-top: 40px;
+  
+  
+  }
+ 
+}
+
+  
+
+
+  
+  
+  
+ 

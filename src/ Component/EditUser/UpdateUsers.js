@@ -139,7 +139,7 @@ function a(props){
 
 
           <input type="submit" value={empId ? "update":"save"}/>
-          <Link to="/">
+          <Link to="/editusers">
           <input type="button" value="Go Back"/>
           </Link>
 

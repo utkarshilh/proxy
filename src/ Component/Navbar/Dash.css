@@ -9,7 +9,22 @@ nav{
     left: 0;
     display: flex;
     align-items: center;
+    
   }
+  @media screen and (max-width: 768px) {
+   
+    
+   #navbar h1{
+    font-size: 30px;
+   }
+  }
+  @media screen and (max-width: 576px) {
+   
+    #navbar h1{
+     font-size: 20px;
+    
+    }
+   }
 nav h1{
     font-style: oblique;
     font-size: 35px;
@@ -72,4 +87,6 @@ nav h1{
 
 
 
+ /*For active nave bar  */
  
+/* active */

@@ -76,3 +76,24 @@
   background-color: rgb(215, 235, 242);
   color: rgb(42, 40, 40);
 }
+
+
+
+
+
+@media screen and (max-width: 576px) {
+  .formSeeUsers{
+   margin-left: 200px;
+   background-color: red;
+  
+  }
+  #containerSeeUsers{
+    margin-left: 200px;
+  } 
+  
+ }
+ @media screen and (min-width : 570px)  and  (max-width: 768px) {
+  
+  
+ }
+

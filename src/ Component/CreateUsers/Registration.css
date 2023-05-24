@@ -9,26 +9,11 @@
     
    
   }
-  
-.card-bodyRegister{
-  width: 100%;
- height: 100%;
-  overflow: auto;
-  margin-bottom: 20px;
- 
- border-radius: 10px;
-/* box-shadow: 1px 1px 5px gainsboro inset; text-align: center;*/
- margin-left: 10px;
- 
- 
- 
-}
-#label{
-  margin-left: 35px;
- 
-}
 
   .formRegister {
+    
+    margin-top: 50px;
+    margin-left: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,11 +40,67 @@
     
   }
   
+.Myprofile{
+  background-color: white;
+  margin-top: 50px;
+  height: 580px;
+  width: 1250px;
+}
+
+@media screen and (max-width: 576px) {
+  #Myprofile{
+  background-color: #008CBA;
+  
+   width: 200px;
+   height: 420px;
+   margin-top: 40px;
+  }
+  .formRegister label {
+    font-size: 8px;
+    color: red;
+   
+  }
+  #formRegister{
+   margin-left: 155px;
+   width: 220px;
+   height: 420px;
+   margin-top: 40px;
+   background-color: red;
+  
+  }
+  #containerRegister{
+    background-color: blue;
+  }
+}
+
+  
+.card-bodyRegister{
+  width: 100%;
+ height: 100%;
+  overflow: auto;
+  margin-bottom: 20px;
+ 
+ border-radius: 10px;
+/* box-shadow: 1px 1px 5px gainsboro inset; text-align: center;*/
+ margin-left: 10px;
+ 
+ 
+ 
+}
+#label{
+  margin-left: 35px;
+ 
+}
+
+  
+  
   
   .formRegister label {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 900;
+    
     margin-bottom: 10px;
+    
    
   }
 

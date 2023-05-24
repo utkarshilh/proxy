@@ -1,41 +1,14 @@
-.containerSeeTable {
+/*.containerSeeTable {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 65px;
     margin-left: 275px;
+    background-color: #4caf50;
    
     
-  }
-  
-  .formSeeTable {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-   
-    box-shadow: 0 0 40px -10px rgba(0, 0,0, 0.25);
-    
-    width: 1360px;
-    height: 690px;
-    position: fixed;
-    padding-top: 10px;
-
-    border: 3px;
-    border-color: rgb(3, 109, 148);
-    border-style: solid;
-    border-bottom-color: white;
-    border-right-color: white;
-    
-  }
-  .formSeeTable label {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-
+  }*/
+  /*
   .card-body2{
     width: 1220px;
     
@@ -49,9 +22,194 @@
    
   
    
+  }*/
+
+
+  /*
+  @media screen and (max-width: 576px) {
+   #formSeeTable{
+    margin-left: 155px;
+    width: 220px;
+    height: 420px;
+    margin-top: 40px;
+   }
+   .formSeeTable label h1{
+    font-size: 18px;
+   }
+
+   #formSeeTable .Setnewtimetablelabel{
+   
+    width: 200px;
+    margin-left: 2px;
+   }
+   #formSeeTable .Setnewtimetablelabel .btn-edit{
+    margin-top: 2px;
+    width: 80px;
+    height: 10;
+    font-size: 6px;
+    align-items: start;
+
+   }
+   
+   #formSeeTable .card-body2 table{
+    width: 200px;
+    height: 275px;
+   }
+   #formSeeTable .card-body2 table tr{
+    width: 200px;
+   
+   }
+   #formSeeTable  .card-body2 table th{
+    padding: 0px; 
+    width: 200px;
+    height: 10px;
+    
+    font-size: 3px;
+   }
+   
+   #formSeeTable  .card-body2 table .colm{
+    border: 1px solid gray;
+    text-align: center;
+   }
+  
+   #formSeeTable .card-body2 table tr td{
+    padding: 1px; 
+    width: 200px;
+    height: 8px;
+    font-size: 7px;
+    background-color: white;
+   }
+   #formSeeTable .edit{
+    
+    width: 19px;
+    height: 12px;
+    font-size: 7px;
+    border-radius: 2px;
+   }
+   
   }
 
+
+
+
+  @media screen and (min-width : 570px)  and  (max-width: 768px) {
+    #formSeeTable{
+     margin-left: 155px;
+     width: 600px;
+     height: 420px;
+     margin-top: 40px;
+    }
+    .formSeeTable label h1{
+     font-size: 25px;
+    }
+ 
+    #formSeeTable .Setnewtimetablelabel{
+    
+     width: 600px;
+     margin-left: 2px;
+    }
+    #formSeeTable .Setnewtimetablelabel .btn-edit{
+     margin-top: 2px;
+     width: 80px;
+     height: 10;
+     font-size: 6px;
+     align-items: start;
+ 
+    }
+    
+    #formSeeTable .card-body2 table{
+     width: 580px;
+     height: 275px;
+    }
+    #formSeeTable .card-body2 table tr{
+     width: 580px;
+    
+    }
+    #formSeeTable  .card-body2 table th{
+     padding: 0px; 
+     width: 580px;
+     height: 10px;
+     
+     font-size: 8px;
+    }
+    #formSeeTable  .card-body2 table .colm{
+     border: 1px solid gray;
+     text-align: center;
+    }
+   
+    #formSeeTable .card-body2 table tr td{
+     padding: 1px; 
+     width: 580px;
+     height: 10px;
+     font-size: 8px;
+     background-color: white;
+    }
+    #formSeeTable .edit{
+     
+     width: 20px;
+     height: 15px;
+     font-size: 7px;
+     border-radius: 2px;
+    }
+    
+   }*/
+ 
+
+
+
+
+
+
+
+
+
+  .edit{
+    width: 50px;
+    height: 30px;
+    border: 0px;
+    font-size: 15px;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+
+  }
+
+
+
+   .Setnewtimetablelabel{
+     width: 1219px;
+   }
+  .formSeeTable {
+   
+    margin-top: 65px;
+    margin-left: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 40px -10px rgba(0, 0,0, 0.25);
+    width: 1360px;
+    height: 690px;
+    position: fixed;
+    padding-top: 10px;
+    border: 3px;
+    border-color: rgb(3, 109, 148);
+    border-style: solid;
+    border-bottom-color: white;
+    border-right-color: white;
+   
+  }
+  .formSeeTable label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
   .card-body2 table {
+   
+    border: 1px solid  rgb(213, 211, 211);
+    border-radius: 20px;
     border-collapse: collapse;
     width: 100%;
    
@@ -71,16 +229,10 @@
     border-bottom: 1px solid white;
   }
 
-  /*#f5f5f5 #ddd*/
-
   .card-body2 table th {
   background-color: rgb(215, 235, 242);
   color: rgb(42, 40, 40);
 }
-
-
-
-
 .updatebtm:hover{
   background-color: #45a049;
 }
@@ -96,3 +248,229 @@
   cursor: pointer;
 
 }
+
+
+/* Default styles for all screen sizes */
+/*
+.edit {
+  width: 50px;
+  height: 30px;
+  border: 0px;
+  font-size: 15px;
+  border-radius: 10px;
+  background-color: blue;
+  color: white;
+}
+
+.Setnewtimetablelabel {
+  width: 1219px;
+}
+
+.formSeeTable {
+  margin-top: 65px;
+  margin-left: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+  width: 1360px;
+  height: 690px;
+  position: fixed;
+  padding-top: 10px;
+  border: 3px solid rgb(3, 109, 148);
+  border-bottom-color: white;
+  border-right-color: white;
+}
+
+.formSeeTable label {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card-body2 table {
+  border: 1px solid rgb(213, 211, 211);
+  border-radius: 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.card-body2 table tr:hover {
+  background-color: rgb(215, 235, 242);
+}
+
+.card-body2 table th,
+.card-body2 table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid white;
+}
+
+.card-body2 table th {
+  background-color: rgb(215, 235, 242);
+  color: rgb(42, 40, 40);
+}
+
+ Media queries for different screen sizes */
+
+@media only screen and (max-width: 1366px) {
+  .formSeeTable {
+    width: 90%;
+    max-width: 1200px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .formSeeTable {
+    margin-left: 100px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .formSeeTable {
+    margin-top: 60px;
+  }
+  
+  .formSeeTable label {
+    font-size: 16px;
+  }
+  
+  .card-body2 table th,
+  .card-body2 table td {
+    padding: 6px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #formSeeTable{
+   margin-left: 155px;
+   width: 220px;
+   height: 420px;
+   margin-top: 40px;
+  
+  }
+  .formSeeTable label h1{
+   font-size: 18px;
+  }
+  .formSeeTable .card-body2{
+   
+    float: left;
+  }
+  #formSeeTable .Setnewtimetablelabel{
+  
+   width: 200px;
+   margin-left: 2px;
+  }
+  #formSeeTable .Setnewtimetablelabel .btn-edit{
+   margin-top: 2px;
+   width: 80px;
+   height: 10;
+   font-size: 6px;
+   align-items: start;
+
+  }
+  
+  #formSeeTable .card-body2 table{
+   width: 200px;
+   height: 275px;
+   margin-left: 0px;
+  
+  }
+  #formSeeTable .card-body2 table tr{
+   width: 200px;
+ 
+  }
+  #formSeeTable  .card-body2 table th{
+   padding: 0px; 
+   width: 200px;
+   height: 10px;
+   
+   font-size: 3px;
+  }
+  
+  #formSeeTable  .card-body2 table .colm{
+   border: 1px solid gray;
+   text-align: center;
+  }
+ 
+  #formSeeTable .card-body2 table tr td{
+   padding: 1px; 
+   width: 200px;
+   height: 8px;
+   font-size: 7px;
+   background-color: white;
+  }
+  #formSeeTable .edit{
+   
+   width: 19px;
+   height: 12px;
+   font-size: 7px;
+   border-radius: 2px;
+  }
+  
+ }
+ @media screen and (min-width : 570px)  and  (max-width: 768px) {
+  #formSeeTable{
+   margin-left: 155px;
+   width: 600px;
+   height: 420px;
+   margin-top: 40px;
+  }
+  .formSeeTable label h1{
+   font-size: 25px;
+  }
+
+  #formSeeTable .Setnewtimetablelabel{
+  
+   width: 600px;
+   margin-left: 2px;
+  }
+  #formSeeTable .Setnewtimetablelabel .btn-edit{
+   margin-top: 2px;
+   width: 80px;
+   height: 10;
+   font-size: 6px;
+   align-items: start;
+
+  }
+  
+  #formSeeTable .card-body2 table{
+   width: 580px;
+   height: 275px;
+  }
+  #formSeeTable .card-body2 table tr{
+   width: 580px;
+  
+  }
+  #formSeeTable  .card-body2 table th{
+   padding: 0px; 
+   width: 580px;
+   height: 10px;
+   
+   font-size: 8px;
+  }
+  #formSeeTable  .card-body2 table .colm{
+   border: 1px solid gray;
+   text-align: center;
+  }
+ 
+  #formSeeTable .card-body2 table tr td{
+   padding: 1px; 
+   width: 580px;
+   height: 10px;
+   font-size: 8px;
+   background-color: white;
+  }
+  #formSeeTable .edit{
+   
+   width: 20px;
+   height: 15px;
+   font-size: 7px;
+   border-radius: 2px;
+  }
+  
+ }
+

@@ -46,14 +46,11 @@ function Dashboard(props) {
   return (
     <div>
       {/* start top navbar history*/}
-      <nav>
+      <nav id="navbar">
         <h1
-          style={{
-            color: " white",
-            textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-          }}
+         
         >
-          United College Of Engineering And Research
+         Proxy
         </h1>
 
         <i class="bx bxs-message-dots"></i>
@@ -96,64 +93,75 @@ function Dashboard(props) {
                <div  class="container">*/}
 
       <section id="sidebar">
-        {/* For Image*/}
 
-        <label
-          style={{
-            backgroundColor: "rgb(215, 235, 242)",
-            width: "100%",
-            height: "150px",
-            textAlign: "left",
-            borderTopRightRadius: "10px",
-          }}
-        >
+
+
+        {/* For Image*/}
+        <label className="upperpartofsidebar">
           {seedata.map((val) => {
             return (
               <div>
-                <img
-                  src={`/uploads/${val.userimg}`}
-                  style={{
-                    width: "100px",
-                    height: "100px",
-                    boxShadow: " 0 0 40px -10px rgba(0, 0,0, 0.25)",
-                    borderRadius: "50%",
-                    float: "left",
-                    marginTop: "20px",
-                    marginLeft: "10px",
-                    border: "2.5px solid  black",
-                  }}
-                  className=""
-                />
-                <br></br>
-                <ul style={{ marginLeft: "100px" }}>
-                  <li>
-                    <h5 style={{ marginTop: "30px" }}>You Are {val.role}</h5>
-                  </li>
-                  <li>
-                    {" "}
-                    <p>{val.name} </p>
-                  </li>
-                </ul>
+                <table style={{ border: "0px" }}>
+                  <tr style={{ border: "0px" }}>
+                    <td style={{ border: "0px" }}>
+                      <img
+                        src={`/uploads/${val.userimg}`}
+                        className="Sidebaruserimg"
+                      />
+
+                      <ul
+                        className="sidebarName"
+                        style={
+                          {
+                            /* marginLeft: "100px"*/
+                          }
+                        }
+                      >
+                        <li>
+                          <h5
+                            style={
+                              {
+                                /* marginTop: "30px"*/
+                              }
+                            }
+                          >
+                            You Are {val.role}
+                          </h5>
+
+                          <p>{val.name} </p>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
               </div>
             );
           })}
-          {/*  <h2 style={{marginTop:"20px"}}>You Are Admin..</h2> box-shadow: 0 0 40px -10px rgba(0, 0,0, 0.25);border: 1.5px solid  rgb(197, 217, 224);
-           <p style={{textAlign:'left'}}>12345<br/>CSE Department</p>*/}
         </label>
+
+
+
+        
 
         <ul class="side-menu top">
           <li class="active">
             <a>
-              <i class="bx bxs-shopping-bag-alt"> </i>
-              <img
-                src="https://drive.google.com/uc?export=view&id=14TPv2FelBv-IPz5EEl6dQqA7NzYF-Z1W"
-                style={{ width: "20px", borderRadius: "50%", float: "left" }}
-                className=""
-              />
-
-              <Link Link className="nav-link" aria-current="page" to="/profile">
-                My Profile
-              </Link>
+              <i class="bx bxs-shopping-bag-alt">
+                <Link
+                  Link
+                  className="nav-link"
+                  id="nav-link"
+                  aria-current="page"
+                  to="/profile"
+                >
+                  <img
+                    src="https://drive.google.com/uc?export=view&id=14TPv2FelBv-IPz5EEl6dQqA7NzYF-Z1W"
+                    className="imageicon"
+                    id=""
+                  />
+                  My Profile
+                </Link>
+              </i>
             </a>
           </li>
 
@@ -193,32 +201,42 @@ function Dashboard(props) {
                         <i class='bx bxs-shopping-bag-alt' ></i>
                          <Link className="nav-link" to="/seetimetable">ShowMyTimeTable</Link> 
                     </a>
-                </li>*/}
+                </li>
+                 style={{ width: "20px", borderRadius: "50%", float: "left" }}
+                
+                
+                */}
 
           <li class="active">
             <a>
-              <i class="bx bxs-shopping-bag-alt"></i>
-              <img
-                src="https://drive.google.com/uc?export=view&id=14PmuBOBzILwZC_dm25zNVWg2-f-xGsbm"
-                style={{ width: "20px", borderRadius: "50%", float: "left" }}
-                className=""
-              />
-              <Link className="nav-link" to="/seetimetable">
-                Time-Table
-              </Link>
+              <i class="bx bxs-shopping-bag-alt">
+                <Link className="nav-link" to="/seetimetable">
+                  <img
+                    src="https://drive.google.com/uc?export=view&id=14PmuBOBzILwZC_dm25zNVWg2-f-xGsbm"
+                    className="imageicon"
+                  />
+                  Time-Table
+                </Link>
+              </i>
             </a>
           </li>
+
           <li class="active">
             <a>
-              <i class="bx bxs-group"></i>
-              <img
-                src="https://drive.google.com/uc?export=view&id=13ZNULshZuWTZdT_NK_9JG2Q2Oloix64q"
-                style={{ width: "20px", borderRadius: "50%", float: "left" }}
-                className=""
-              />
-              <Link Link className="nav-link" aria-current="page" to="/request">
-                Request
-              </Link>
+              <i class="bx bxs-shopping-bag-alt">
+                <Link
+                  Link
+                  className="nav-link"
+                  aria-current="page"
+                  to="/request"
+                >
+                  <img
+                    src="https://drive.google.com/uc?export=view&id=13ZNULshZuWTZdT_NK_9JG2Q2Oloix64q"
+                    className="imageicon"
+                  />
+                  Request
+                </Link>
+              </i>
             </a>
           </li>
 
@@ -244,47 +262,43 @@ function Dashboard(props) {
           {props.updateUser.currentRole == "Admin" && (
             <li className="active">
               <a>
-                <i class="bx bxs-message-dots"></i>
-                <img
-                  src="https://drive.google.com/uc?export=view&id=14GaAIlMno4zn9juc8uWALCu2EpDQUAuM"
-                  style={{ width: "20px", borderRadius: "50%", float: "left" }}
-                  className=""
-                />
-                <Link className="nav-link" to="/roll">
-                  Admin
-                </Link>
+                <i class="bx bxs-shopping-bag-alt">
+                  <Link className="nav-link" to="/roll">
+                    <img
+                      src="https://drive.google.com/uc?export=view&id=14GaAIlMno4zn9juc8uWALCu2EpDQUAuM"
+                      className="imageicon"
+                    />
+                    Admin
+                  </Link>
+                </i>
               </a>
             </li>
           )}
           {props.updateUser.currentRole == "Hod" && (
             <li className="active">
               <a>
-                <i class="bx bxs-message-dots"></i>
-                <img
-                  src="https://drive.google.com/uc?export=view&id=14GaAIlMno4zn9juc8uWALCu2EpDQUAuM"
-                  style={{ width: "20px", borderRadius: "50%", float: "left" }}
-                  className=""
-                />
-                <Link className="nav-link" to="/roll">
-                  HOD
-                </Link>
+                <i class="bx bxs-shopping-bag-alt">
+                  <Link className="nav-link" to="/roll">
+                    <img
+                      src="https://drive.google.com/uc?export=view&id=14GaAIlMno4zn9juc8uWALCu2EpDQUAuM"
+                      className="imageicon"
+                    />
+                    HOD
+                  </Link>
+                </i>
               </a>
             </li>
           )}
 
           <a>
             <i class="bx bxs-message-dots"></i>
-            <Link
-              className="nav-link"
-              style={{ textAlign: "center", padding: "50px" }}
-            >
+            <Link className="nav-link" id="logout">
               <img
                 src="https://drive.google.com/uc?export=view&id=13WtVjlIykWmSXYqxTnHUkV-lPkp-pYZV"
-                style={{ width: "70px", borderRadius: "50%" }}
-                className="Img"
+                className="logoutimg"
                 onClick={handleLogoutButton}
               />
-              <p>Logout</p>
+              <p className="name" onClick={handleLogoutButton}>Logout</p>
             </Link>
             {/* <i class='bx bxs-message-dots' ></i>
                         <Link className="nav-link" to="javascript:history.back()"  style={{textAlign:'center'}} >
