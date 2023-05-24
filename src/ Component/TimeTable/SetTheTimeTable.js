@@ -26,6 +26,16 @@ function SetTheTimeTable(props) {
   const [three, setThree] = useState("");
 
   const submitTimeTable = () => {
+
+    if (!day || !nine || !ten || !eleven || !twelve || !one || !two || !three) {
+      alert("fields cannot be blank")
+      return;
+
+
+    }
+
+
+
     Axios.post("/api/setTimeTable", {
       // here new varaibles have created using old variable + adding e before the old variable
       empId: empId,
@@ -46,15 +56,17 @@ function SetTheTimeTable(props) {
 
   return (
     <div className="containerTable">
-       <form className="formTable">
-        <label className="label" style={{backgroundColor:'' ,
-         width:'1190px', height:'90px', marginTop:'20px'}} >
-          <h1  style={{textDecorationLine: 'underline'}}>
+      <form className="formTable">
+        <label className="label" style={{
+          backgroundColor: '',
+          width: '1190px', height: '90px', marginTop: '20px'
+        }} >
+          <h1 style={{ textDecorationLine: 'underline' }}>
             <strong> Set Time Table</strong>
-           
+
           </h1>
         </label>
-      
+
         <div class="card-body1">
           <form action="">
             <table>
@@ -62,7 +74,7 @@ function SetTheTimeTable(props) {
                 {/* Day section  */}
                 <td style={{ border: "0px" }}>
                   <div className="form-group ">
-                    <label htmlFor="day" id="label" style={{marginLeft:'10px'}}>Day</label>
+                    <label htmlFor="day" id="label" style={{ marginLeft: '10px' }}>Day</label>
                     <br />
                     <select
                       name="day"
@@ -85,21 +97,23 @@ function SetTheTimeTable(props) {
                   </div>
                   <hr></hr>
                 </td>
-                 
+
                 {/* EmpId section : this is temprary section  */}
                 <td style={{ border: "0px" }}>
                   <div className="form-group ">
-                    <label htmlFor="InputEmpId"  id="label" style={{marginLeft:'10px'}}>Employee Id</label>
+                    <label htmlFor="InputEmpId" id="label" style={{ marginLeft: '10px' }}>Employee Id</label>
                     <br></br>
                     <input
                       type="number"
                       name="empId"
                       className="form-control"
-                      style={{width:'550px',
-                      paddingLeft:'20px',
-                      height:'60px',
-                       borderRadius:'5px',
-                       border: '1.5px solid rgb(197, 217, 224)'}}
+                      style={{
+                        width: '550px',
+                        paddingLeft: '20px',
+                        height: '60px',
+                        borderRadius: '5px',
+                        border: '1.5px solid rgb(197, 217, 224)'
+                      }}
                       id="InputApplicationDate"
                       aria-describedby="emailHelp"
                       placeholder="Input emp id"
@@ -107,18 +121,18 @@ function SetTheTimeTable(props) {
                         setEmpId(e.target.value);
                         console.log(e.target.value);
                       }}
-                      
+
                     />
                   </div>
                   <hr></hr>
                 </td>
-                
-                </tr>
+
+              </tr>
               <tr style={{ border: "0px" }}>
                 {/* this is first lecture detail 9:00 - 10:00 */}
                 <td style={{ border: "0px" }}>
                   <div className="form-group ">
-                    <label htmlFor="nine"  id="label" style={{marginLeft:'10px'}}>9:00 AM - 10:00 AM</label>
+                    <label htmlFor="nine" id="label" style={{ marginLeft: '10px' }}>9:00 AM - 10:00 AM</label>
                     <br />
                     <select
                       name="nine"
@@ -145,7 +159,7 @@ function SetTheTimeTable(props) {
                 {/* this is first lecture detail 10:00 - 11:00 */}
                 <td style={{ border: "0px" }}>
                   <div className="form-group ">
-                    <label htmlFor="ten"  id="label" style={{marginLeft:'10px'}}>10:00 AM - 11:00 AM </label>
+                    <label htmlFor="ten" id="label" style={{ marginLeft: '10px' }}>10:00 AM - 11:00 AM </label>
                     <br />
                     <select
                       name="ten"
@@ -173,7 +187,7 @@ function SetTheTimeTable(props) {
                 {/* this is first lecture detail 11:00 - 12:00 */}
                 <td style={{ border: "0px" }}>
                   <div className="form-group ">
-                    <label htmlFor="eleven"  id="label" style={{marginLeft:'10px'}}>11:00 AM - 12:00 PM</label>
+                    <label htmlFor="eleven" id="label" style={{ marginLeft: '10px' }}>11:00 AM - 12:00 PM</label>
                     <br />
                     <select
                       name="eleven"
@@ -200,7 +214,7 @@ function SetTheTimeTable(props) {
                 {/* this is first lecture detail 12:00 - 01:00 */}
                 <td style={{ border: "0px" }}>
                   <div className="form-group ">
-                    <label htmlFor="twelve"  id="label" style={{marginLeft:'10px'}}>12:00 PM - 01:00 PM</label>
+                    <label htmlFor="twelve" id="label" style={{ marginLeft: '10px' }}>12:00 PM - 01:00 PM</label>
                     <br />
                     <select
                       name="twelve"
@@ -228,7 +242,7 @@ function SetTheTimeTable(props) {
                 {/* this is first lecture detail 01:00 - 02:00 */}
                 <td style={{ border: "0px" }}>
                   <div className="form-group ">
-                    <label htmlFor="one"  id="label" style={{marginLeft:'10px'}}>01:00 PM - 02:00 PM</label>
+                    <label htmlFor="one" id="label" style={{ marginLeft: '10px' }}>01:00 PM - 02:00 PM</label>
                     <br />
                     <select
                       name="one"
@@ -255,7 +269,7 @@ function SetTheTimeTable(props) {
                 {/* this is first lecture detail 02:00 - 03:00 */}
                 <td style={{ border: "0px" }}>
                   <div className="form-group ">
-                    <label htmlFor="two"  id="label" style={{marginLeft:'10px'}}>02:00 PM - 03 : 00 PM</label>
+                    <label htmlFor="two" id="label" style={{ marginLeft: '10px' }}>02:00 PM - 03 : 00 PM</label>
                     <br />
                     <select
                       name="two"
@@ -283,7 +297,7 @@ function SetTheTimeTable(props) {
                 {/* this is first lecture detail 03:00 - 04:00 */}
                 <td style={{ border: "0px" }}>
                   <div className="form-group ">
-                    <label htmlFor="three"  id="label" style={{marginLeft:'10px'}}>03:00 PM - 04:00 PM </label>
+                    <label htmlFor="three" id="label" style={{ marginLeft: '10px' }}>03:00 PM - 04:00 PM </label>
                     <br />
                     <select
                       name="three"

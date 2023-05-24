@@ -10,7 +10,7 @@ export default function RequestLeave(props) {
 
   const [leaveType, setLeaveType] = useState("");
 
-  const [applicationDate, setApplicationDate] = useState("");
+  // const [applicationDate, setApplicationDate] = useState("");
 
   const [fromDate, setFromDate] = useState("");
 
@@ -22,6 +22,9 @@ export default function RequestLeave(props) {
 
   const submitRequest = (e) => {
     e.preventDefault();
+
+
+
 
     // finding the current days so that the applicaion date can be mentioned
     var nowDate = new Date();
@@ -66,8 +69,8 @@ export default function RequestLeave(props) {
             }}
           />
         </div> */}
-       {/* branch */}
-       <div className="form-group ">
+        {/* branch */}
+        <div className="form-group ">
           <label htmlFor="InputEmpId">Branch</label>
           <br />
           <select
@@ -87,7 +90,7 @@ export default function RequestLeave(props) {
             <option value="ME">ME</option>
           </select>
         </div>
-       
+
 
         {/* leave type  */}
         <div className="form-group ">
@@ -109,7 +112,7 @@ export default function RequestLeave(props) {
           </select>
         </div>
 
-       
+
 
         {/* from date */}
         <div className="form-group ">
@@ -145,7 +148,7 @@ export default function RequestLeave(props) {
           />
         </div>
 
-      
+
 
         {/* Reason section  */}
         <div className="form-group">
