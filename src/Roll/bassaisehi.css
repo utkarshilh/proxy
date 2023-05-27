@@ -1,0 +1,192 @@
+
+   /* <h5 style={{ textAlign: "left" }}>
+      <b>Request-User:</b>
+    </h5>*/
+    
+   /*<li> <strong className="TitleOfHod">
+        RequestId:&nbsp;&nbsp;&nbsp;&nbsp;
+     </strong>
+      <span className="TitleOfHodResult">{val.requestId}</span></li><br></br>
+  
+     {/*val.empId*/
+     /*<li><strong className="TitleOfHod">
+        FacultyId:&nbsp;&nbsp;&nbsp;&nbsp;
+     </strong>
+      <span className="TitleOfHodResult">{val.empId}</span></li><br></br>
+ 
+     {/*val.empId*/
+     /*<table style={{width:'500px'}}>
+<tr>
+  <td scope="col">
+      <strong className="TitleOfHod">
+        FacultyName:&nbsp;&nbsp;&nbsp;&nbsp;
+     </strong>
+      <span className="TitleOfHodResult">{val.name}</span>
+      
+ 
+  </td>
+  <td> 
+     <strong className="TitleOfHod">
+        Department&nbsp;&nbsp;&nbsp;&nbsp;
+     </strong><br></br>
+    <span className="TitleOfHodResult">{val.Department}</span>
+  </td>
+ 
+
+</tr>
+
+<tr>
+
+  
+
+  <td> 
+     <strong className="TitleOfHod">
+        DOJ&nbsp;&nbsp;&nbsp;&nbsp;
+     </strong><br></br>
+    <span className="TitleOfHodResult">{val.dateOfJoining}</span>
+  </td>
+
+  <td> 
+     <strong className="TitleOfHod">
+        Date&nbsp;&nbsp;&nbsp;&nbsp;
+     </strong><br></br>
+    <span className="TitleOfHodResult">{val.empId}</span>
+  </td>
+
+
+
+
+
+</tr>
+
+<tr>
+  <td style={{border:'0px'}} scope="col">
+    <h5 style={{ textAlign: "center" }}>
+      <b>Duration:</b>
+    </h5>
+    </td>
+    <td style={{border:'0px'}}>
+ 
+    <b>From&nbsp;&nbsp;</b>{val.fromDate.split('T')[0] } <b>To&nbsp;&nbsp;</b> {val.toDate.split('T')[0]}{" "}
+  </td>
+</tr>
+
+
+
+<tr>
+  <td style={{border:'0px'}} scope="col">
+    <h5 style={{ textAlign: "center" }}>
+      <b>Nature Of Leave:</b>
+    </h5>
+  </td>
+  <td style={{border:'0px'}}>{val.leaveType}</td>
+</tr>
+
+
+   <tr>
+  <td scope="col">
+    <h5 style={{ textAlign: "left" }}>
+      <b>Date Of Leave:</b>
+    </h5>
+  </td>
+  <td>{val.applicationDate.split('T')[0]}</td>
+</tr>
+
+
+<tr>
+  <td style={{border:'0px'}} scope="col">
+    <h5 style={{ textAlign: "center" }}>
+      <b>Reason:</b>
+    </h5>
+    <p style={{border:'0px'}}>{val.reason}</p>
+  </td>
+ 
+
+
+  <td style={{border:'0px'}} scope="col">
+    <h5 style={{ textAlign: "center" }}>
+      <b>Balance Leave Excluding this Leave</b>
+    </h5>
+    <td>
+    <ul>
+      <li><strong style={{color:'darkblue'}}>Casual Leave:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+       <span >{val.BalenaceleaveexcludingthisleaveCL}</span></li> <br/>
+     
+    </ul>
+    </td>
+  </td>
+</tr>
+
+<tr>
+  <td style={{border:'0px'}} scope="col">
+    <h5 style={{ textAlign: "center" }}>
+      <b>Leave Already taken in the current Month</b>
+    </h5>
+    <td>
+    <ul>
+      <li><strong style={{color:'darkblue'}}>Casual Leave:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+       <span >{val.LeavealrdytakncrrntmonthCL}</span></li> <br/>
+      <li><strong style={{color:'darkblue'}}>Leave With Pay:&nbsp;&nbsp;&nbsp;&nbsp;</strong> <span >{val.LeavealrdytakncrrntmonthLWP}</span></li>
+    </ul>
+    </td>
+  </td>
+
+
+
+  <td style={{border:'0px'}} scope="col">
+    <h5 style={{ textAlign: "center" }}>
+      <b>Till Previous Month Leave Taken</b>
+    </h5>
+    <td>
+    <ul>
+      <li><strong style={{color:'darkblue'}}>Casual Leave:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+       <span >{val.TillprevsmonthleavetakenCL}</span></li> <br/>
+      <li><strong style={{color:'darkblue'}}>Leave With Pay:&nbsp;&nbsp;&nbsp;&nbsp;</strong> <span >{val.TillprevsmonthleavetakenLWP}</span></li>
+    </ul>
+    </td>
+  </td>
+  
+</tr>
+
+
+
+
+
+
+
+<tr>
+  <td scope="col">
+    <h5 style={{ textAlign: "left" }}>
+      <b>Your Response:</b>
+    </h5>
+ 
+    <button
+      type="button"
+      className="btn btn-success"
+      onClick={() => {
+        requestAccepted(val.requestId);
+      }}
+    >
+      Accept
+    </button>
+    <button
+      type="button"
+      className="btn btn-danger"
+      onClick={() => {
+        requestRejected(val.requestId);
+      }}
+    >
+      Reject
+    </button>
+  </td>
+
+
+
+  <td scope="col">
+  <Link to="/allrequestforhod">
+   <input type="button" value="Go Back"/>
+  </Link>
+  </td>
+  
+</tr>
+</table>

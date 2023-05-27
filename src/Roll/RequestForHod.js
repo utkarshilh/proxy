@@ -111,7 +111,7 @@ function RequestForHod(props) {
 
                 <tr>
                   <td>
-                    <Link to={`/hod/${val.requestId}`}>
+                    <Link to={`/hod/${val.requestId}/${val.empId}`}>
                       <button
                         style={{
                           backgroundColor: "skyblue",

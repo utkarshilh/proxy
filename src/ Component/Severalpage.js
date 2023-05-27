@@ -1,12 +1,12 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import AllLeaveRequest from './AllLeaveRequest';
+//import AllLeaveRequest from './AllLeaveRequest';
 
 import Navbar from './Navbar';
 import RequestLeave from './RequestLeave';
 import SetTimeTable from './SetTimeTable';
 
-import AllRequestForHod from './AllRequestForHod';
+//import AllRequestForHod from './AllRequestForHod';
 import SeeTimeTable from './SeeTimeTable';
 import SetArrangement from './SetArrangement';
 import SetUser from './SetUser';
@@ -15,9 +15,9 @@ import SetUser from './SetUser';
 import Main from './SetArrangementRequest/Main'
 
 
-import A from './A'
-import B from './B'
-import Home from './Home';
+//import A from './A'
+//import B from './B'
+//import Home from './Home';
 import Dashboard from './Navbar/Dashboard';
 //import Admin from '../Roll/Admin';
 import Edit from './EditUser/Edit';
@@ -42,12 +42,13 @@ import SetTheTimeTable from './TimeTable/SetTheTimeTable';
 import Login from './Login';
 import Registration from './CreateUsers/Registration';
 import MyProfile from './CreateUsers/MyProfile';
-import UpdateTimeTable from './TimeTable/UpdateTimeTable';
+//import UpdateTimeTable from './TimeTable/UpdateTimeTable';
 import UpdateU from './TimeTable/UpdateU';
 
 import RequestForHodCard from '../Roll/RequestForHodCard';
 import RollofFaculty from '../Roll/RollofFaculty';
 import ControlHodAdmin from '../Roll/ControlHodAdmin';
+import Card from '../Roll/Card';
 
 export default function Severalpage(props) {
 
@@ -68,10 +69,11 @@ export default function Severalpage(props) {
             
 
             <Routes>
-            <Route exact path="/" element={<MyProfile updateUser={props} />}></Route>
-                <Route exact path="/x" element={<B updateUser={props} />}></Route>
+            <Route exact path="/x" element={<MyProfile updateUser={props} />}></Route>
+            <Route exact path="/" element={<Card updateUser={props} />}></Route>
+                {/*<Route exact path="/x" element={<B updateUser={props} />}></Route>*/}
                 <Route exact path="/pqr" element={<ControlHodAdmin updateUser={props} />}></Route>
-                <Route exact path="/hod/:requestId" element={<RequestForHodCard updateUser={props} />}></Route>
+                <Route exact path="/hod/:requestId/:empId" element={<RequestForHodCard updateUser={props} />}></Route>
                 <Route exact path="/profile" element={<MyProfile updateUser={props} />}></Route>
                
                 <Route exact path="/view/:empId" element={<View updateUser={props} />}></Route>

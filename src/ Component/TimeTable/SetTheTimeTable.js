@@ -62,7 +62,7 @@ function SetTheTimeTable(props) {
           width: '1190px', height: '90px', marginTop: '20px'
         }} >
           <h1 style={{ textDecorationLine: 'underline' }}>
-            <strong> Set Time Table</strong>
+            <strong> Set Time Table...</strong>
 
           </h1>
         </label>

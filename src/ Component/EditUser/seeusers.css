@@ -1,11 +1,188 @@
 .containerSeeUsers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-left: 280px;
+}
+
+.formSeeUsers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1360px;
+  height: 100%;
+  max-height: 690px;
+  position: fixed;
+  padding-top: 10px;
+  border: 3px;
+  border-color: rgb(3, 109, 148);
+  border-style: solid;
+  border-bottom-color: white;
+  border-right-color: white;
+}
+
+#card-bodySeeUsers {
+  width: 100%;
+  max-width: 1280px;
+  height: auto;
+  max-height: 500px;
+  overflow-y: auto; /* Add vertical scroll */
+  margin-bottom: 30px;
+  box-shadow: 1px 1px 5px gainsboro inset;
+  text-align: center;
+}
+
+#card-bodySeeUsers table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%; /* Set max-width to 100% */
+}
+
+.SeeTable {
+  width: 100%; /* Set table width to 100% */
+}
+
+.SeeTable th,
+.SeeTable td {
+  white-space: nowrap; /* Prevent table cell content from wrapping */
+}
+
+/* Rest of your CSS styles... */
+
+
+/* Media Queries for Responsive Layout */
+@media (max-width: 576px) {
+  .containerSeeUsers {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .formSeeUsers {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    max-height: none;
+    position: relative;
+  }
+
+  #card-bodySeeUsers {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    max-height: none;
+  }
+
+  #card-bodySeeUsers table {
+    width: 100%;
+    max-width: none;
+  }
+  #SeeTable tr {
+    width: 100px;
+    background-color: brown;
+    padding: 0px;
+    font-size: 10px;
+
+    
+  }
+  #SeeTable th {
+    width: 100px;
+    background-color: green;
+    padding: 0px;
+
+    
+  }
+
+  #form-control {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .containerSeeUsers {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  /* Styles for screen width between 577px and 768px */
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .containerSeeUsers {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  /* Styles for screen width between 769px and 992px */
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .containerSeeUsers {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  /* Styles for screen width between 993px and 1200px */
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .containerSeeUsers {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  /* Styles for screen width between 1201px and 1400px */
+}
+
+/* Add more media queries for other screen sizes as needed */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.containerSeeUsers {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
     margin-left: 280px;
-    
-    
   }
   .formSeeUsers {
     display: flex;
@@ -17,43 +194,26 @@
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     width: 1360px;
     height: 690px;
-   
     position: fixed;
     padding-top: 10px;
-
-
     border: 3px;
     border-color: rgb(3, 109, 148);
     border-style: solid;
     border-bottom-color: white;
     border-right-color: white;
-   
-    
   }
-   
-  .formSeeUsers label {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-
   #card-bodySeeUsers{
     width: 1280px;
     height: 500px;
- 
     overflow: auto;
     margin-bottom: 30px;
-   
-   
    box-shadow: 1px 1px 5px gainsboro inset;
    text-align: center;
-  
-   
   }
   
   #card-bodySeeUsers table {
     border-collapse: collapse;
-    width: 100%;
+    width: 1259px;
   }
   .Seetablecolheading{
     height: 50px;
@@ -77,23 +237,118 @@
   color: rgb(42, 40, 40);
 }
 
+#form-control{
+  width: 1280px;
+ 
+}
+.formSeeUsers label{
+  font-size: 45px;
+  font-weight: 200px;
+}
 
 
 
+/*@media screen and (max-width: 1400px) {
+  .formSeeUsers {
+    width: 1000px;
+  }
+  
+  #card-bodySeeUsers {
+    width: 960px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .containerSeeUsers {
+    margin-left: 100px;
+  }
+  
+  .formSeeUsers {
+    width: 800px;
+  }
+  
+  #card-bodySeeUsers {
+    width: 760px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .containerSeeUsers {
+    margin-left: 50px;
+  }
+  
+  .formSeeUsers {
+    width: 600px;
+  }
+  
+  #card-bodySeeUsers {
+    width: 560px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .containerSeeUsers {
+    margin-left: 20px;
+  }
+  
+  .formSeeUsers {
+    width: 400px;
+  }
+  
+  #card-bodySeeUsers {
+    width: 360px;
+  }
+  
+  .formSeeUsers label {
+    font-size: 25px;
+  }
+  #form-control{
+    width: 290px;
+   
+  }
+}
 
 @media screen and (max-width: 576px) {
-  .formSeeUsers{
-   margin-left: 200px;
-   background-color: red;
+  .containerSeeUsers {
+    margin-left: 10px;
+  }
+  
+  .formSeeUsers {
+    width: 300px;
+  }
+  
+  #card-bodySeeUsers {
+    width: 260px;
+  }
+  
+  .formSeeUsers label {
+    font-size: 25px;
+  }
+  #form-control{
+    width: 255px;
+   
+  }
+
+  
+  #SeeTable{
+    width: 200px;
+    height: 500px;
+    background-color: aqua;
+    
+    
+  }
+  /*.Seetablecolheading{
+    height: 10px;
+    font-size: 10px;
+    
+   padding: 0px;
+    
+  }*/
+ /* .Seetablecol {
+ 
+   padding: 0px;
+  height: 10px;
+  font-size: 10px;
   
   }
-  #containerSeeUsers{
-    margin-left: 200px;
-  } 
-  
- }
- @media screen and (min-width : 570px)  and  (max-width: 768px) {
-  
-  
- }
-
+}*/

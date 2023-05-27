@@ -30,8 +30,8 @@
   }
 
   .card-bodyRequestForHod{
-    width: 1120px;
- 
+    width: auto;
+  
   overflow: auto;
   margin-bottom: 30px;
  
@@ -47,7 +47,8 @@
   }
   
   .card-bodyRequestForHod table th, td {
-    padding: 8px;
+    padding: 10px;
+    padding-right: 30px;
     text-align: left;
     border-bottom: 1px solid #ddd;
    
@@ -105,8 +106,9 @@ body.active-modal {
   background: #f1f1f1;
   padding: 14px 28px;
   border-radius: 3px;
-  max-width: 600px;
-  min-width: 300px;
+  /*max-width: 600px;
+  min-width: 300px;*/
+  width: 60%;
 }
 
 .close-modal {
@@ -176,10 +178,12 @@ body.active-modal {
   justify-content: center;
 }
 .model-content{
-  width: 500px;
+  width: 70%;
+ margin-left: 300px;
   background-color: white;
+  height: auto;
 
-}
+}/* card-bodyRequestForHod  model-content*/
 
 .model-header h1{
   margin: 0;
