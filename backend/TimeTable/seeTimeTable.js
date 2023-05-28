@@ -1,6 +1,6 @@
-const express=require("express");
+const express = require("express");
 var db = require('../sqlCredentials')
-const router=express.Router()
+const router = express.Router()
 
 
 //To see the time table-->
@@ -10,7 +10,7 @@ router.get('/api/seetimetable/:empId', (req, res) => {
     console.log("hello hello " + empId)
     const id = req.params.empId;
     const day = 'monday';
-    const seeTimeTbl = "(select 'monday' as dday, nine, ten, eleven, twelve, one, two, three from monday where empId = ? union all select  'tuesday' as dday, nine, ten, eleven, twelve, one, two, three  from tuesday where empId = ? union all select  'wednesday' as dday, nine, ten, eleven, twelve, one, two, three  from wednesday where empId = ? union all select 'thursday' as dday, nine, ten, eleven, twelve, one, two, three  from thrusday where empId = ? union all select  'friday' as dday, nine, ten, eleven, twelve, one, two, three from friday where empId = ? union all select 'saturday' as dday, nine, ten, eleven, twelve, one, two, three from saturday where empId = ? )";
+    const seeTimeTbl = "(select 'monday' as dday, nine, ten, eleven, twelve, one, two, three from monday where empId = ? union all select  'tuesday' as dday, nine, ten, eleven, twelve, one, two, three  from tuesday where empId = ? union all select  'wednesday' as dday, nine, ten, eleven, twelve, one, two, three  from wednesday where empId = ? union all select 'thursday' as dday, nine, ten, eleven, twelve, one, two, three  from thursday where empId = ? union all select  'friday' as dday, nine, ten, eleven, twelve, one, two, three from friday where empId = ? union all select 'saturday' as dday, nine, ten, eleven, twelve, one, two, three from saturday where empId = ? )";
     db.query(seeTimeTbl, [id, id, id, id, id, id], (err, result) => {
 
         if (err)
@@ -47,10 +47,14 @@ router.post('/api/setTimeTable', (req, res) => {
     // db.query(leaveRequest, (err, result) => {
     db.query(setTimetbl, [empId, branch, nine, ten, eleven, twelve, one, two, three], (err, result) => {
 
-        if (err)
+        if (err) {
             console.log(err);
-        else
+            res.send(err);
+
+        }
+        else {
             res.send(result);
+        }
     });
 })
 
@@ -63,8 +67,8 @@ router.get('/api/seetimetablex/:empId/:dday', (req, res) => {
     const empId = req.params.empId;
     console.log("hello hello " + empId)
     const id = req.params.empId;
-   const dday = req.params.dday;//'monday';day
-    const seeTimeTbl = "SELECT*FROM "+dday+" Where empId=?";
+    const dday = req.params.dday;//'monday';day
+    const seeTimeTbl = "SELECT*FROM " + dday + " Where empId=?";
     db.query(seeTimeTbl, [id, dday], (err, result) => {
 
         if (err)
@@ -74,33 +78,33 @@ router.get('/api/seetimetablex/:empId/:dday', (req, res) => {
             console.log('yyy')
         }
     });
-   // console.log(seeTimeTbl);
-   // console.log(day);
-   // console.log('h');
+    // console.log(seeTimeTbl);
+    // console.log(day);
+    // console.log('h');
 })
 
 
 //To update the timetable based on their empId and day-->
 router.put('/updatetable/:empId/:dday', (req, res) => {
-     const nine = req.body.nine;
-     const ten = req.body.ten;
-     const eleven = req.body.eleven;
-     const twelve = req.body.twelve;
-     const one = req.body.one;
-     const two = req.body.two;
-     const three = req.body.three;
+    const nine = req.body.nine;
+    const ten = req.body.ten;
+    const eleven = req.body.eleven;
+    const twelve = req.body.twelve;
+    const one = req.body.one;
+    const two = req.body.two;
+    const three = req.body.three;
     const empId = req.params.empId;
     const dday = req.params.dday;
-     console.log( nine )
-     const setTimetbl = "UPDATE "+ dday + " SET nine=?, ten=?, eleven=?, twelve=?, one=?, two=?, three=? WHERE empId = ?";
-     db.query(setTimetbl, [nine,ten,eleven,twelve,one,two,three,empId], (err, result) => {
- 
-         if (err)
-             console.log(err);
-         else
-         console.log("yaha hai " + JSON.stringify(dday));
-             return res.json({updated:true})//res.send(result);
-     });
- })
- 
-module.exports= router
+    console.log(nine)
+    const setTimetbl = "UPDATE " + dday + " SET nine=?, ten=?, eleven=?, twelve=?, one=?, two=?, three=? WHERE empId = ?";
+    db.query(setTimetbl, [nine, ten, eleven, twelve, one, two, three, empId], (err, result) => {
+
+        if (err)
+            console.log(err);
+        else
+            console.log("yaha hai " + JSON.stringify(dday));
+        return res.json({ updated: true })//res.send(result);
+    });
+})
+
+module.exports = router
