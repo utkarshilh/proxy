@@ -45,7 +45,7 @@ function EditUsers(props) {
       <form className="formEditUsers">
         <label className="label">
           <h1>
-            <strong>Edit Users..</strong>
+            <strong>Edit Users</strong>
           </h1>
         </label>
         <input
@@ -89,13 +89,33 @@ function EditUsers(props) {
                             <td>{item.Email}</td>
                             <td>{item.Department}</td>
                     <td>{item.ContactNo}</td>*/}
-                            <td>
+                            <td >
                             <Link to={`/update/${item.empId}`}>
-                                 <button className="btn btn-edit">Edit</button>
+                                 <button className=""
+                                  style={{backgroundColor:'green',
+                                   width:'70px', height:'39px',
+                                    marginRight:'50px',
+                                    border:'0px',
+                                    borderRadius:'7px'
+                                    
+                                    }}>
+                                    Edit</button>
                                 </Link>
-                                <button className="btn btn-delete" onClick={()=>deleteContact(item.empId)}>Delete</button>
+                                <button className=""
+                                 style={{backgroundColor:'red',
+                                 width:'70px', height:'39px',
+                                    marginRight:'50px',
+                                    border:'0px',
+                                    borderRadius:'7px'
+                                 }} onClick={()=>deleteContact(item.empId)}>Delete</button>
                                 <Link to={`/view/${item.empId}`}>
-                                 <button className="btn btn-view">View</button>
+                                 <button  style={{backgroundColor:'yellow',
+                                width:'70px', height:'39px',
+                                marginRight:'50px',
+                                border:'0px',
+                                borderRadius:'7px'
+                              
+                              }} className="">View</button>
                                 </Link>
                             </td>
 

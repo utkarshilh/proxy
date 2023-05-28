@@ -62,7 +62,14 @@ import "./view.css";
               <br/>
 
               <Link to="/editusers">
-                 <button className="btn btn-edit">Go Back</button>
+                 <button
+                  style={{backgroundColor:'grey',
+                  width:'90px', height:'39px',
+                  marginRight:'50px',
+                  border:'0px',
+                  borderRadius:'7px'
+                
+                }} className="">Go Back</button>
               </Link>
               
 

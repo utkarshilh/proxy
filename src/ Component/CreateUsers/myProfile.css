@@ -14,13 +14,14 @@
     position: fixed;
     padding-top: 10px;
     border: 3px;
+    
    /* border-color: rgb(3, 109, 148);
     border-style: solid;
     border-bottom-color: white;
     border-right-color: white; */
   }
   
-.Myprofile{
+#Myprofile{
   background-color: white;
   margin-top: 50px;
   height: 580px;
@@ -42,6 +43,8 @@
 .TitleResult{
    font-size: 19px;
    text-decoration: underline;
+   color: gray;
+   font-style: oblique;
   
   
 }
