@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import './SetArrangement.css';
+
 import axios from 'axios';
 
 function SetArrangement(props) {
-    console.log(props.updateUser.currentUser);
+
 
     const [date, setDate] = useState("");
     const [day, setDay] = useState("");
     const [lecture, setLecture] = useState("");
     const [section, setSection] = useState("");
     const [teachers, setTeachers] = useState([]);
-
+    const [emp, setEmp] = useState(props.updateUser.currentUser)
     // const [teachers, setTeachers] = useState([
     //     { name: "John Doe", available: true },
     //     { name: "Jane Smith", available: false },
@@ -23,9 +24,13 @@ function SetArrangement(props) {
     //     { name: "utkarsh", available: true }
     // ]);
 
+    useEffect(() => {
 
+    }, [day]);
 
     const handleSubmit = (event) => {
+
+
         event.preventDefault();
 
         // Use the date and time to create a date object
@@ -39,7 +44,12 @@ function SetArrangement(props) {
 
     const handleAvailabeRequest = () => {
 
-        if (date == "") {
+        if (day == "Sunday") {
+            alert("you cannot apply the arrangement for sunday")
+
+        }
+
+        else if (date == "") {
             alert("date is not mentioned");
 
         }
@@ -57,14 +67,15 @@ function SetArrangement(props) {
         else if (section == "") {
             alert("section is not null");
         }
+
+        else if (section == "Free") {
+            alert("you can not request arrangement for the free lecture")
+        }
+
+
         else {
 
-            console.log("date = " + date);
-            console.log("day = " + day);
 
-            console.log("lecture" + lecture);
-            console.log("section" + section);
-            console.log("this is really not fair re you")
 
             Axios.post('api/getArrangement', {
                 day: day,
@@ -74,10 +85,10 @@ function SetArrangement(props) {
 
             }).then(
                 (response) => {
-                    console.log("this is response " + JSON.stringify(response.data))
+
                     setTeachers(response.data)
 
-                    console.log(teachers[0]);
+
                 }
             );
 
@@ -88,15 +99,15 @@ function SetArrangement(props) {
 
     const handleRequest = (index) => {
 
-        console.log("this is index " + index)
+
         const currentDate = new Date(date);
         const onlyDate = currentDate.getDate();
         const month = currentDate.getMonth() + 1; // returns the month (0-11)
         const year = currentDate.getFullYear(); // returns the year (four digits)
 
-        console.log("this is the current user that is being requestd", teachers[index])
+
         const reqId = `${onlyDate < 10 ? '0' + onlyDate : onlyDate}${month < 10 ? '0' + month : month}${year}${props.updateUser.currentUser}${section}${lecture}`;
-        console.log(reqId);
+
         Axios.post("api/arrangementRequestIntoTable", {
             // here new varaibles have created using old variable + adding e before the old variable
             reqId: reqId,
@@ -105,8 +116,15 @@ function SetArrangement(props) {
             date: date,
             lecture: lecture,
             section, section,
-        }).then(() => {
-            alert("successful insert");
+        }).then((res) => {
+
+            if (res.data.code == "ER_DUP_ENTRY")
+                alert("Already requested to the teacher for the same date and lecture ")
+
+            else if (res.data == "successfully inserted ")
+                alert("successful insert");
+            else
+                alert("Something went wrong Please try again")
         });
 
         const updatedTeachers = [...teachers];
@@ -117,6 +135,11 @@ function SetArrangement(props) {
 
 
     }
+
+    const updateDayState = (dayOfWeek) => {
+
+        setDay(dayOfWeek)
+    };
     return (
         <div className="container">
             <form className="form" onSubmit={handleSubmit}>
@@ -130,11 +153,35 @@ function SetArrangement(props) {
 
                             setDate(event.target.value)
                             const dateObj = new Date(event.target.value);
-                            console.log(dateObj)
+
                             const options = { weekday: 'long', timeZone: 'Asia/Kolkata' };
                             const dayOfWeek = dateObj.toLocaleDateString('en-US', options);
-                            setDay(dayOfWeek)
-                            console.log(day)
+                            updateDayState(dayOfWeek);
+
+
+
+
+
+
+                            const dday = day;
+
+
+
+                            if (lecture != "") {
+
+                                console.log("dday =" + dday)
+                                Axios.post("api/getTheSection", {
+
+                                    empId: props.updateUser.currentUser,
+                                    lec: lecture,
+                                    day: dday,
+
+                                }).then((response) => {
+
+                                    setSection(Object.values(response.data[0])[0])
+
+                                });
+                            }
 
 
                         }

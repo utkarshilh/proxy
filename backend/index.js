@@ -84,6 +84,7 @@ app.post("/api/getArrangement", (req, res) => {
 
 // this is the section that is requesting currently---->
 app.post("/api/arrangementRequestIntoTable", (req, res) => {
+  console.log(req.body)
   const reqId = req.body.reqId;
   const empId = req.body.empId;
   const otherEmpId = req.body.otherEmpId;
@@ -135,8 +136,10 @@ app.post("/api/arrangementRequestIntoTable", (req, res) => {
           (err, result) => {
             if (err) {
               console.log(err);
+              res.send(err)
             } else {
               console.log("Record inserted successfully");
+              res.send("successfully inserted ")
             }
           }
         );
@@ -145,20 +148,20 @@ app.post("/api/arrangementRequestIntoTable", (req, res) => {
   );
   console.log(
     reqId +
-      " " +
-      empId +
-      " " +
-      otherEmpId +
-      " " +
-      date +
-      " " +
-      lecture +
-      " " +
-      date +
-      " " +
-      lecture +
-      " " +
-      section
+    " " +
+    empId +
+    " " +
+    otherEmpId +
+    " " +
+    date +
+    " " +
+    lecture +
+    " " +
+    date +
+    " " +
+    lecture +
+    " " +
+    section
   );
 });
 

@@ -8,6 +8,9 @@ function SeeAllUsers(props) {
   const [record, setRecords] = useState(data);
   const loadData = async () => {
     const response = await axios.get("/api/get");
+
+
+    console.log(response.data)
     setData(response.data);
     setRecords(response.data);
   };
@@ -59,7 +62,7 @@ function SeeAllUsers(props) {
                   <td className="Seetablecol">{item.empId}</td>
                   <td className="Seetablecol">{item.name}</td>
                   <td className="Seetablecol">{item.role}</td>
-                  <td className="Seetablecol">{item.email}</td>
+                  <td className="Seetablecol">{item.Email}</td>
                   <td className="Seetablecol">{item.Gender}</td>
                   <td className="Seetablecol">{item.Department}</td>
                   <td className="Seetablecol">{item.ContactNo}</td>
