@@ -9,7 +9,7 @@ export default function RollofFaculty(props) {
 <>
 {props.updateUser.currentRole == "Admin" && (
       <div className="containerRoll">
-        <form className="formRoll">
+        <form className="">
           <div className="SubComponent">
             <div className="row">
               <table style={{ marginTop: "0px" }}>
@@ -22,7 +22,7 @@ export default function RollofFaculty(props) {
                       <Link className="nav-link" to="/setUser">
                         <div class="profile">
                           <img
-                            src="https://drive.google.com/uc?export=view&id=12Ur3jF9JSFFgCunzN9Htd232QZy02ALJ"
+                            src=" https://drive.google.com/uc?export=view&id=12sha0zRyfV2KbOl5rRpQEB8przYyU4NI"
                             className="icon"
                           />
 
@@ -109,7 +109,104 @@ export default function RollofFaculty(props) {
 
   <>
   {props.updateUser.currentRole == "Hod" && (
-       <div  className='SubComponent'>
+<div className="containerRoll">
+<form className="">
+  <div className="SubComponent">
+    <div className="row">
+      <table style={{ marginTop: "0px" }}>
+        <tr style={{ border: "0px" }}>
+          <td style={{ border: "0px" }}>
+            <section class=" card">
+              <div class="card__corner">
+                <div class="card__corner-triangle"></div>
+              </div>
+              <Link className="nav-link" to="/allrequestforhod">
+                <div class="profile">
+                  <img
+                    src="https://drive.google.com/uc?export=view&id=12cIhQkLiW0d89N6SSbVfOVX7DHXA2-LB"
+                    className="icon"
+                  />
+
+                  <label
+                    className="label"
+                    style={{
+                      backgroundColor: "rgb(215, 235, 242)",
+                      width: "200px",
+                      borderBottomLeftRadius: "10px",
+                      borderBottomRightRadius: "10px",
+                    }}
+                  >
+                    <p style={{ marginTop: "10px" }}>Request For Hod</p>
+                  </label>
+                </div>
+              </Link>
+            </section>
+          </td>
+
+         
+        
+          <td style={{ border: "0px" }}>
+            <section class=" card">
+            <div class="card__corner">
+                <div class="card__corner-triangle"></div>
+              </div>
+              <Link className="nav-link" to="/allUsers">
+                <div class="profile">
+                  <img
+                    src="https://drive.google.com/uc?export=view&id=1GTowQBpxRiMWL50rGwX28EY1OK3p-mpR"
+                    className="icon"
+                  />
+                  <label
+                    className="label"
+                    style={{
+                      backgroundColor: "rgb(215, 235, 242)",
+                      width: "200px",
+                      borderBottomLeftRadius: "10px",
+                      borderBottomRightRadius: "10px",
+                     
+                    }}
+                  >
+                    <p style={{ marginTop: "10px" }}>See All Users</p>
+                  </label>
+                </div>
+              </Link>
+            </section>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /*<div  className='SubComponent'>
        <div className='row'>
       
        
@@ -135,7 +232,7 @@ export default function RollofFaculty(props) {
        </section>
        
        </div>
-    </div>
+    </div>*/
       )}
       </>
 

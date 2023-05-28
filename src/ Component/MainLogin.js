@@ -3,7 +3,7 @@ import { React, useEffect, useState } from 'react'
 
 import "./Mainlogin.css";
 import Axios from 'axios'
-import Login from "./Login";
+//import Login from "./Login";
 
 
 

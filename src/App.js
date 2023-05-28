@@ -11,7 +11,7 @@ import Axios from 'axios'
 
 
 import Severalpage from './ Component/Severalpage';
-import Login from './ Component/Login';
+//import Login from './ Component/Login';
 /*import Navbar from './ Component/Navbar';
   import './Component/App.css'*/
  

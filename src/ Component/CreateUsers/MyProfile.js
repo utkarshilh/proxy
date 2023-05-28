@@ -46,7 +46,7 @@ function MyProfile(props) {
   }, []);
 
   return (
-    <div className="formMyprofile" id="formMyprofile">
+    <div className="formMyprofile" id="formMyprofile" >
       <div className="Myprofile" id="Myprofile">
         <div className="headerView">
           <p className="Heading">
@@ -58,6 +58,22 @@ function MyProfile(props) {
               return (
                 <>
                   <table>
+                  <tr style={{ border: "0px" }}>
+                      <td style={{ textAlign: "left", border: "0px" }}>
+                        <strong className="Title">
+                          Name:&nbsp;&nbsp;&nbsp;&nbsp;
+                        </strong>
+                        <span className="TitleResult">{el.name}</span>
+                      </td>
+                    </tr>
+                    <tr style={{ border: "0px" }}>
+                      <td style={{ textAlign: "left", border: "0px" }}>
+                        <strong className="Title">
+                          EmpId:&nbsp;&nbsp;&nbsp;&nbsp;
+                        </strong>
+                        <span className="TitleResult">{el.empId}</span>
+                      </td>
+                    </tr>
                     <tr style={{ border: "0px" }}>
                       <td style={{ textAlign: "left", border: "0px" }}>
                         <strong className="Title">
@@ -66,6 +82,15 @@ function MyProfile(props) {
                         <span className="TitleResult">{el.role}</span>
                       </td>
                     </tr>
+                    <tr style={{ border: "0px" }}>
+                      <td style={{ textAlign: "left", border: "0px" }}>
+                        <strong className="Title">
+                          ContactNo:&nbsp;&nbsp;&nbsp;&nbsp;
+                        </strong>
+                        <span className="TitleResult">{el.ContactNo}</span>
+                      </td>
+                    </tr>
+                    
                     <tr style={{ border: "0px" }}>
                       <td style={{ textAlign: "left", border: "0px" }}>
                         <strong className="Title">
@@ -83,30 +108,8 @@ function MyProfile(props) {
                         <span className="TitleResult">{el.Department}</span>
                       </td>
                     </tr>
-                    <tr style={{ border: "0px" }}>
-                      <td style={{ textAlign: "left", border: "0px" }}>
-                        <strong className="Title">
-                          EmpId:&nbsp;&nbsp;&nbsp;&nbsp;
-                        </strong>
-                        <span className="TitleResult">{el.empId}</span>
-                      </td>
-                    </tr>
-                    <tr style={{ border: "0px" }}>
-                      <td style={{ textAlign: "left", border: "0px" }}>
-                        <strong className="Title">
-                          Name:&nbsp;&nbsp;&nbsp;&nbsp;
-                        </strong>
-                        <span className="TitleResult">{el.name}</span>
-                      </td>
-                    </tr>
-                    <tr style={{ border: "0px" }}>
-                      <td style={{ textAlign: "left", border: "0px" }}>
-                        <strong className="Title">
-                          ContactNo:&nbsp;&nbsp;&nbsp;&nbsp;
-                        </strong>
-                        <span className="TitleResult">{el.ContactNo}</span>
-                      </td>
-                    </tr>
+                   
+                   
                   </table>
                 </>
               );
