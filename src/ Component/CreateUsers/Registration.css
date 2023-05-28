@@ -93,13 +93,20 @@
 }
 
   
-  
+#Registerbtm{
+  width: 100px;
+  height: 50px;
+  background-color: green;
+  margin-left: 100px;
+  border-radius: 7px;
+}
   
   .formRegister label {
     font-size: 18px;
     font-weight: 900;
     
     margin-bottom: 10px;
+    border: 0px;
     
    
   }
@@ -122,12 +129,13 @@
     background-color: blue;
   }
   .formRegister select{
-    width: 300px;
-    margin-bottom: 20px;
-    border-radius: 50px;
+   
+    width: 600px;
+    height: 50px;
+    border-radius: 8px;
     font-family: "Times New Roman, Times, serif";
     padding-left: 10px;
-    box-shadow: 1px 1px 5px rgb(208, 207, 207) ;
+   /* box-shadow: 1px 1px 5px rgb(208, 207, 207) ;*/
     margin-left: 10px;
 
 }
@@ -137,6 +145,7 @@
   font-weight: 0px;
   color: rgb(93, 93, 93);
   text-align: left;
+ 
  }
  .form-group {
  
@@ -151,13 +160,19 @@
   padding-left: 10px;
   box-shadow: 1px 1px 5px rgb(233, 231, 231) ;
   height: 100%;
-  
  
- 
-
-
 }
 
+#registerinput{
+  
+  width: 600px;
+  height: 50px;
+  border-radius: 8px;
+  font-family: "Times New Roman, Times, serif";
+  padding-left: 10px;
+ /* box-shadow: 1px 1px 5px rgb(208, 207, 207) ;*/
+  margin-left: 10px;
+}
   /* time table design */
  .card-bodyRegister table {
     border-collapse: collapse;
@@ -179,6 +194,7 @@
     text-align: center;
     border-bottom: 1px solid #ddd;
     border-radius: 10px;
+   
   }
   
  /* .card-body1 table  tr:hover {background-color: white;}*/

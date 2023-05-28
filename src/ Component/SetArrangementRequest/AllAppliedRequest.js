@@ -65,7 +65,7 @@ export default function AllAppliedRequest(props) {
                                     marginBottom: '8px'
                                 }}>
                                     <span style={{ fontWeight: 'bold' }}>Date:</span>
-                                    <span style={{ marginLeft: '4px' }}>{val.forDate}</span>
+                                    <span style={{ marginLeft: '4px' }}>{val.forDate.split('T')[0]}</span>
 
                                 </div>
                                 <div style={{

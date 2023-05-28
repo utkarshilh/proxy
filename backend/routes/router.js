@@ -65,12 +65,14 @@ router.post('/api/setUser', upload.single("photo"), (req, res) => {
     const ContactNo = req.body.ContactNo;
 
     const { filename } = req.file;
+    const { dateOfJoining } = req.body.dateOfJoining;
+    
 
     bcrypt.hash(password, saltRound, (err, hash) => {
         if (err)
             console.log(err)
-        const sqlRegister = "INSERT INTO proxy.loginPage (empId, name ,password,role,Email, Gender, Department, ContactNo, userimg) VALUES(?,?,?,?,?,?,?,?,?)";
-        db.query(sqlRegister, [empId, name, hash, role, Email, Gender, Department, ContactNo, filename], (err, result) => {
+        const sqlRegister = "INSERT INTO proxy.loginPage (empId, name ,password,role,Email, Gender, Department, ContactNo, userimg, dateOfJoining) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        db.query(sqlRegister, [empId, name, hash, role, Email, Gender, Department, ContactNo, filename, dateOfJoining], (err, result) => {
             if (err)
 
                 console.log(err)
