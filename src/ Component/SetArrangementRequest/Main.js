@@ -72,6 +72,7 @@ export default function Main(props) {
     }
 
     return (
+        <div className='container'>
         <div className='Main'>
 
             <RequestList
@@ -81,6 +82,7 @@ export default function Main(props) {
 
             />
             <AllAppliedRequest currentUser={props.updateUser.currentUser} />
+        </div>
         </div>
 
     );

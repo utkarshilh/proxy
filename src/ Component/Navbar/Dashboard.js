@@ -113,21 +113,17 @@ function Dashboard(props) {
                         className="sidebarName"
                         style={
                           {
-                            /* marginLeft: "100px"*/
+                             marginLeft: "100px",
+                             marginTop:'10px'
                           }
                         }
                       >
                         <li>
-                          <h5
-                            style={
-                              {
-                                /* marginTop: "30px"*/
-                              }
-                            }
+                          <p
                           >
                             You Are {val.role}
-                          </h5>
-
+                          </p>
+                        </li><li>
                           <p>{val.name} </p>
                         </li>
                       </ul>

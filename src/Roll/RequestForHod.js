@@ -20,28 +20,6 @@ function RequestForHod(props) {
     });
   }, []);
 
-  const requestAccepted = (id) => {
-    console.log(id);
-    console.log("the current request is approved");
-
-    Axios.post("/api/setFinalVerdict", {
-      id: id,
-      currentstatus: "Accepted",
-    }).then(() => {
-      alert("successful Accepted");
-      update();
-    });
-  };
-  const requestRejected = (id) => {
-    Axios.post("/api/setFinalVerdict", {
-      id: id,
-      currentstatus: "Rejected",
-    }).then(() => {
-      alert("successful Rejected");
-      update();
-    });
-  };
-
   const update = () => {
     console.log("update was executed");
     Axios.get("/api/AllRequestForHod").then((response) => {
@@ -84,13 +62,13 @@ function RequestForHod(props) {
                 <tr key={val.empId}>
                   <td>{index + 1}</td>
                   <td scope="col">
-                    <h5 style={{ textAlign: "left" }}>
-                      <b>Request-User:</b>
-                    </h5>
+                    <strong> Requested User:</strong>
+                    
                   </td>
                   <td>
                     {val.empId}&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                    {val.applicationDate.split("T")[1].split(".")[0]}
+                    <b>From</b>&nbsp;&nbsp;{val.fromDate.split("T")[0]}{" "}
+                      <b>&nbsp;&nbsp;To&nbsp;&nbsp;</b> {val.toDate.split("T")[0]}{" "}
                     &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                     &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
                     &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
