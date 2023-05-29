@@ -64,4 +64,49 @@ router.get('/api/AllRequestForHod/:requestId/:empId', (req, res) => {
 
 })
 
+
+
+
+
+
+
+
+
+
+
+router.get('/api/AllRequestForHod/proxy', (req, res) => {
+
+    console.log(" i stated executing myself")
+
+     //const sqlSelect = "SELECT t1., t2. FROM leaverequest t1 JOIN loginpage t2 ON t1.empId = t2.empId WHERE t1.empId = ? AND requestId = ?";
+
+    // /const sqlSelect = "select * from loginpage where empId= ? ";/
+    const sqlSelect = "SELECT * FROM proxy.ArrangementMainRequest WHERE empId = 12345 AND (forDate between '2023/03/06' AND  '2023/05/10')";
+     
+    db.query(sqlSelect, [empId, requestId], (err, result) => {
+        if (err)
+            console.log(err);
+        else {
+
+            res.send(result);
+        }
+
+    })
+
+})
+
+
+
+router.get("/xyz", (req,res)=>{
+    const sqlGet="SELECT * FROM ArrangementMainRequest  WHERE empId = 12345 AND (forDate BETWEEN '2023-03-06' AND '2023-05-10')";
+    db.query(sqlGet,(error,result)=>{
+        res.send(result);
+    });
+});
+
+
+
+  
+  
+
 module.exports= router

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import AddUser from './Imageroll/addUsers.jpg'
+import AllUser from './Imageroll/alluserss.png'
+import EditUser from './Imageroll/editurss.png'
 import "./roll.css";
 export default function RollofFaculty(props) {
   console.log(props.updateUser.currentRole);
@@ -22,7 +25,7 @@ export default function RollofFaculty(props) {
                       <Link className="nav-link" to="/setUser">
                         <div class="profile">
                           <img
-                            src=" https://drive.google.com/uc?export=view&id=12sha0zRyfV2KbOl5rRpQEB8przYyU4NI"
+                            src={AddUser}
                             className="icon"
                           />
 
@@ -50,7 +53,7 @@ export default function RollofFaculty(props) {
                       <Link className="nav-link" to="/editusers">
                         <div class="profile">
                           <img
-                            src="https://drive.google.com/uc?export=view&id=1VbsY_4cim1MIhvvbePXnsTimjH1n3WK7"
+                            src={EditUser}
                             className="icon"
                           />
 
@@ -79,7 +82,7 @@ export default function RollofFaculty(props) {
                       <Link className="nav-link" to="/allUsers">
                         <div class="profile">
                           <img
-                            src="https://drive.google.com/uc?export=view&id=1GTowQBpxRiMWL50rGwX28EY1OK3p-mpR"
+                            src={AllUser}
                             className="icon"
                           />
                           <label

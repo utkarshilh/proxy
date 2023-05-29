@@ -72,7 +72,7 @@ export default function Main(props) {
     }
 
     return (
-        <div className='container'>
+        <div style={{marginTop:'70px'}}>
         <div className='Main'>
 
             <RequestList
