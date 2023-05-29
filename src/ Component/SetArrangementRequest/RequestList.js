@@ -2,19 +2,22 @@ import React from "react";
 import Request from "./Request";
 
 function RequestList(props) {
+    console.log("sss " + JSON.stringify(props))
     return (
 
-        <div className="request-list">
-            {props.requests.map((request) => (
-                <Request
-                    key={request.empID}
-                    request={request}
-                    onAccept={props.onAccept}
-                    onReject={props.onReject}
-                />
-            ))}
+        < div className="request-list" >
+            {
+                props.requests.map((request) => (
+                    <Request
+                        key={request.empID}
+                        request={request}
+                        onAccept={props.onAccept}
+                        onReject={props.onReject}
+                    />
+                ))
+            }
 
-        </div>
+        </div >
     );
 }
 

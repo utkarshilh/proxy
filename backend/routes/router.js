@@ -51,7 +51,7 @@ var upload = multer({
 //Registration of user-->
 router.post('/api/setUser', upload.single("photo"), (req, res) => {
 
-    console.log(req.body)
+
 
     const empId = req.body.empId;
     const name = req.body.name;
@@ -65,8 +65,9 @@ router.post('/api/setUser', upload.single("photo"), (req, res) => {
     const ContactNo = req.body.ContactNo;
 
     const { filename } = req.file;
-    const { dateOfJoining } = req.body.dateOfJoining;
-    
+    const dateOfJoining = req.body.dateOfJoining;
+
+
 
     bcrypt.hash(password, saltRound, (err, hash) => {
         if (err)
@@ -82,6 +83,7 @@ router.post('/api/setUser', upload.single("photo"), (req, res) => {
             }
         })
     })
+    console.log(req.body)
 })
 
 //Get the user based on their id-->

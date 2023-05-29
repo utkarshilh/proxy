@@ -10,9 +10,12 @@ function SeeAllUsers(props) {
     const response = await axios.get("/api/get");
 
 
-    console.log(response.data)
+    console.log("this is data data " + JSON.stringify(data))
     setData(response.data);
     setRecords(response.data);
+
+
+
   };
 
   useEffect(() => {
@@ -25,6 +28,7 @@ function SeeAllUsers(props) {
       f.name.toLowerCase().includes(event.target.value.toLowerCase())
     );
     setRecords(filteredRecords);
+    console.log('this is record' + record)
   };
 
   return (
@@ -66,6 +70,7 @@ function SeeAllUsers(props) {
                   <td className="Seetablecol">{item.Gender}</td>
                   <td className="Seetablecol">{item.Department}</td>
                   <td className="Seetablecol">{item.ContactNo}</td>
+                  <td className="Seetablecol">{item.dateOfJoining}</td>
                 </tr>
               );
             })}

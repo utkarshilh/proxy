@@ -123,7 +123,7 @@ function Registration(props) {
                   onChange={(e) => setempId(e.target.value)}
                 />
                 {errors.empId && (
-                  <span  style={{color:'red'}} className="error">{errors.empId}</span>
+                  <span style={{ color: 'red' }} className="error">{errors.empId}</span>
                 )}
               </td>
               <td>
@@ -138,7 +138,7 @@ function Registration(props) {
                   onChange={(e) => setname(e.target.value)}
                 />
                 {errors.name && (
-                  <span  style={{color:'red'}} className="error">{errors.name}</span>
+                  <span style={{ color: 'red' }} className="error">{errors.name}</span>
                 )}
               </td>
             </tr>
@@ -155,7 +155,7 @@ function Registration(props) {
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 {errors.Email && (
-                  <span style={{color:'red'}} className="error">{errors.Email}</span>
+                  <span style={{ color: 'red' }} className="error">{errors.Email}</span>
                 )}
               </td>
 
@@ -169,7 +169,7 @@ function Registration(props) {
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 {errors.password && (
-                  <span  style={{color:'red'}} className="error">{errors.password}</span>
+                  <span style={{ color: 'red' }} className="error">{errors.password}</span>
                 )}
               </td>
             </tr>
@@ -186,7 +186,7 @@ function Registration(props) {
                   onChange={(e) => setContactNo(e.target.value)}
                 />
                 {errors.ContactNo && (
-                  <span  style={{color:'red'}} className="error">{errors.ContactNo}</span>
+                  <span style={{ color: 'red' }} className="error">{errors.ContactNo}</span>
                 )}
               </td>
               <td>
@@ -205,7 +205,7 @@ function Registration(props) {
                   <option value="Female">Female</option>
                 </select>
                 {errors.Gender && (
-                  <span  style={{color:'red'}} className="error">{errors.Gender}</span>
+                  <span style={{ color: 'red' }} className="error">{errors.Gender}</span>
                 )}
               </td>
             </tr>
@@ -229,7 +229,7 @@ function Registration(props) {
                   <option value="CE">ME</option>
                 </select>
                 {errors.Department && (
-                  <span  style={{color:'red'}} className="error">{errors.Department}</span>
+                  <span style={{ color: 'red' }} className="error">{errors.Department}</span>
                 )}
               </td>
               <td>
@@ -249,7 +249,7 @@ function Registration(props) {
                   <option value="Hod">Hod</option>
                 </select>
                 {errors.role && (
-                  <span  style={{color:'red'}} className="error">{errors.role}</span>
+                  <span style={{ color: 'red' }} className="error">{errors.role}</span>
                 )}
               </td>
             </tr>
@@ -264,7 +264,7 @@ function Registration(props) {
                   onChange={(e) => setFile(e.target.files[0])}
                 />
                 {errors.file && (
-                  <span  style={{color:'red'}} className="error">{errors.file}</span>
+                  <span style={{ color: 'red' }} className="error">{errors.file}</span>
                 )}
                 <br></br>
               </td>
@@ -278,10 +278,19 @@ function Registration(props) {
                   name="fromDate"
                   placeholder="DOJ..."
                   value={dateOfJoining}
-                  onChange={(e) => setdateOfJoining(e.target.value)}
+                  onChange={(e) => {
+                    setdateOfJoining(e.target.value)
+                    console.log("hello hello " + dateOfJoining)
+
+                  }
+
+
+
+
+                  }
                 />
                 {errors.dateOfJoining && (
-                  <span  style={{color:'red'}} className="error">{errors.dateOfJoining}</span>
+                  <span style={{ color: 'red' }} className="error">{errors.dateOfJoining}</span>
                 )}
               </td>
             </tr>

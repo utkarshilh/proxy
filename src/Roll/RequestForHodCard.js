@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./requestForHod.css";
-import{useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Axios from "axios";
 
 function RequestForHodCard(props) {
@@ -10,19 +10,57 @@ function RequestForHodCard(props) {
   let [show, setShow] = useState(true);
   let [showx, setShowx] = useState();
 
+  const [proxy, setProxy] = useState([]);
+  const [fromDate, setFromDate] = useState("");
+  const [toDate, setToDate] = useState("");
+
+
+
   const { requestId } = useParams();
   const { empId } = useParams();
   useEffect(() => {
-    console.log("useEffect executed");
-    console.log("update was executed");
+
     Axios.get(`/api/AllRequestForHod/${requestId}/${empId}`).then(
       (response) => {
+        console.log(new Date(response.data[0].fromDate).toLocaleDateString('en-GB'))
+        setFromDate(new Date(response.data[0].fromDate).toLocaleDateString('en-GB'))
+        setToDate(new Date(response.data[0].toDate).toLocaleDateString('en-GB'))
+
         setAllRequestForHodx(response.data);
+
+
+        Axios.get("/api/AllRequestForHod/proxy",
+          {
+            data: {
+              empId: empId,
+              fromDate: fromDate,
+              toDate: toDate
+            }
+          }).then((response) => {
+            console.log("it was executed")
+            // setProxy(response.data);
+          }
+          );
       }
     );
+
+
+
+
+    // Axios.get("/api/AllRequestForHod", {
+    //   empId: empId,
+    //   forDate: ,
+    //   toDate
+    // }).then(
+    //   (response) => {
+    //     setProxy(response.data);
+    //   }
+    // );
+
+
   }, []);
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const requestAccepted = (id) => {
     console.log(id);
     console.log("the current request is approved");
@@ -178,8 +216,8 @@ function RequestForHodCard(props) {
                     </td>
                     <td style={{ border: "1px solid black" }} rowSpan={2}>
                       {" "}
-                      <b>From</b>&nbsp;&nbsp;{val.fromDate.split("T")[0]}{" "}
-                      <b>To&nbsp;&nbsp;</b> {val.toDate.split("T")[0]}{" "}
+                      <b>From</b>&nbsp;&nbsp;{new Date(val.fromDate).toLocaleDateString('en-GB')}&nbsp;&nbsp;
+                      <b>To&nbsp;&nbsp;</b>{new Date(val.toDate).toLocaleDateString('en-GB')}
                     </td>
                     <th
                       style={{
@@ -350,7 +388,7 @@ function RequestForHodCard(props) {
                         Accept
                       </button>
 
-                       </td> <td>
+                    </td> <td>
 
                       <button
                         type="button"

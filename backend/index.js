@@ -46,6 +46,31 @@ app.post("/api/setFinalVerdict", (req, res) => {
   console.log("hello" + cstatus + id);
 });
 
+
+// to get all the leave request for employee level 
+app.get('/api/allRequestedLeave/:empId', (req, res) => {
+  console.log(" i was executednnnn")
+
+
+
+  const empId = req.params.empId;
+  console.log("ss=" + empId);
+
+  const sqlSelect = "select * from proxy.LeaveRequest where empId= ? ";
+
+  db.query(sqlSelect, [empId], (err, result) => {
+    if (err)
+      console.log(err);
+    else {
+
+      res.send(result);
+    }
+
+  })
+
+})
+
+
 // to find the the current section he is teachign according to his time table--->
 app.post("/api/getTheSection", (req, res) => {
   const empId = req.body.empId;

@@ -3,16 +3,21 @@ import React from "react";
 
 function Request(props) {
 
+    console.log(props)
+
+    // const [emp,setEmp] = useState(props.request)
 
 
     const { empID, name, date, reason, section, lecture } = props.request;
+
+    console.log("yahan ki leave request " + JSON.stringify(props.request.empId))
 
     return (
         <div className="container">
             <div className="request">
                 <div>
                     <span>Emp ID:</span>
-                    <span>{empID}</span>
+                    <span>{props.request.empId}</span>
                 </div>
                 <div>
                     <span>Name:</span>
@@ -20,15 +25,15 @@ function Request(props) {
                 </div>
                 <div>
                     <span>Date:</span>
-                    <span>{date}</span>
+                    <span>{new Date(date).toLocaleDateString('en-GB')}</span>
                 </div>
                 <div>
                     <span>Section:</span>
-                    <span>{section} - Lecture {lecture}</span>
+                    <span>{section} </span>
                 </div>
                 <div>
-                    <span>Reason:</span>
-                    <span>{reason}</span>
+                    <span>Lecture:</span>
+                    <span>{lecture}</span>
                 </div>
 
                 <div className="buttons">
