@@ -31,7 +31,7 @@ export default function AllAppliedRequest(props) {
 
     return (
         <div>
-            <h1 className='text-center'>All Applied Request</h1>
+            <h1 className='text-center'>All Applied Arragement Request </h1>
 
             {request.map((val) => {
                 return (
