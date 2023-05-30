@@ -1,6 +1,6 @@
-const express=require("express");
+const express = require("express");
 var db = require('../sqlCredentials')
-const router=express.Router()
+const router = express.Router()
 
 
 // to get all the request from the table and serving to hod 
@@ -48,41 +48,10 @@ router.get('/api/AllRequestForHod/:requestId/:empId', (req, res) => {
     console.log("ss=" + requestId);
     /*const sqlSelect = "SELECT *FROM leaverequest JOIN allfaculty where leaverequest.empId = allfaculty.id AND empId=1003";/api/allRequestedLeave/:empId */
 
-   const sqlSelect = "SELECT t1.*, t2.* FROM leaverequest t1 JOIN loginpage t2 ON t1.empId = t2.empId WHERE t1.empId = ? AND requestId = ?";
+    const sqlSelect = "SELECT t1.*, t2.* FROM leaverequest t1 JOIN loginpage t2 ON t1.empId = t2.empId WHERE t1.empId = ? AND requestId = ?";
 
-   /*const sqlSelect = "select * from loginpage where empId= ? ";*/
+    /*const sqlSelect = "select * from loginpage where empId= ? ";*/
 
-    db.query(sqlSelect, [empId,requestId], (err, result) => {
-        if (err)
-            console.log(err);
-        else {
-
-            res.send(result);
-        }
-
-    })
-
-})
-
-
-
-
-
-
-
-
-
-
-
-router.get('/api/AllRequestForHod/proxy', (req, res) => {
-
-    console.log(" i stated executing myself")
-
-     //const sqlSelect = "SELECT t1., t2. FROM leaverequest t1 JOIN loginpage t2 ON t1.empId = t2.empId WHERE t1.empId = ? AND requestId = ?";
-
-    // /const sqlSelect = "select * from loginpage where empId= ? ";/
-    const sqlSelect = "SELECT * FROM proxy.ArrangementMainRequest WHERE empId = 12345 AND (forDate between '2023/03/06' AND  '2023/05/10')";
-     
     db.query(sqlSelect, [empId, requestId], (err, result) => {
         if (err)
             console.log(err);
@@ -97,16 +66,67 @@ router.get('/api/AllRequestForHod/proxy', (req, res) => {
 
 
 
-router.get("/xyz", (req,res)=>{
-    const sqlGet="SELECT * FROM ArrangementMainRequest  WHERE empId = 12345 AND (forDate BETWEEN '2023-03-06' AND '2023-05-10')";
-    db.query(sqlGet,(error,result)=>{
-        res.send(result);
-    });
-});
 
 
 
-  
-  
 
-module.exports= router
+
+
+
+
+router.post('/api/AllRequestForHod/proxy', (req, res) => {
+
+    console.log(req.body)
+
+    const empId = req.body.empId;
+    const fromdatepart1 = req.body.fromDate;
+    const toDatepart2 = req.body.toDate;
+
+
+
+
+
+    const part1 = fromdatepart1.split('/');
+    const part2 = toDatepart2.split('/');
+
+    const fromDate = `${part1[2]}-${part1[1]}-${part1[0]}`;
+    const toDate = `${part2[2]}-${part2[1]}-${part2[0]}`;
+
+
+
+
+    console.log(empId + " " + fromDate + " " + toDate + " ");
+
+    const sqlSelect = "SELECT ArrangementMainRequest.*,  CASE  WHEN ArrangementMainRequest.otherEmpId IS NULL THEN 'NA' ELSE loginPage.name END AS name FROM proxy.ArrangementMainRequest LEFT JOIN proxy.loginPage ON ArrangementMainRequest.otherEmpId = loginPage.empId WHERE ArrangementMainRequest.empID = 12345 AND ArrangementMainRequest.forDate >= '2023-05-19' AND ArrangementMainRequest.forDate <= '2023-05-30';";
+
+    db.query(sqlSelect, [empId, fromDate, toDate], (err, result) => {
+        if (err) {
+            console.log(err);
+
+            res.send(err);
+
+        }
+        else {
+            console.log(result);
+            res.send(result);
+        }
+
+    })
+
+})
+
+
+
+// router.get("/xyz", (req, res) => {
+//     const sqlGet = "SELECT * FROM ArrangementMainRequest  WHERE empId = 12345 AND (forDate BETWEEN '2023-03-06' AND '2023-05-10')";
+//     db.query(sqlGet, (error, result) => {
+//         res.send(result);
+//     });
+// });
+
+
+
+
+
+
+module.exports = router

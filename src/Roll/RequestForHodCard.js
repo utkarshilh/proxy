@@ -1,3 +1,5 @@
+import "./RequestForHodCard";
+
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./requestForHod.css";
@@ -11,8 +13,6 @@ function RequestForHodCard(props) {
   let [showx, setShowx] = useState();
 
   const [proxy, setProxy] = useState([]);
-  const [fromDate, setFromDate] = useState("");
-  const [toDate, setToDate] = useState("");
 
 
 
@@ -23,22 +23,25 @@ function RequestForHodCard(props) {
     Axios.get(`/api/AllRequestForHod/${requestId}/${empId}`).then(
       (response) => {
         console.log(new Date(response.data[0].fromDate).toLocaleDateString('en-GB'))
-        setFromDate(new Date(response.data[0].fromDate).toLocaleDateString('en-GB'))
-        setToDate(new Date(response.data[0].toDate).toLocaleDateString('en-GB'))
 
         setAllRequestForHodx(response.data);
 
+        const fromDate = new Date(response.data[0].fromDate).toLocaleDateString('en-GB');
+        const toDate = new Date(response.data[0].toDate).toLocaleDateString('en-GB');
 
-        Axios.get("/api/AllRequestForHod/proxy",
+        Axios.post("/api/AllRequestForHod/proxy",
           {
-            data: {
-              empId: empId,
-              fromDate: fromDate,
-              toDate: toDate
-            }
+            empId: empId,
+            fromDate: fromDate,
+            toDate: toDate
           }).then((response) => {
-            console.log("it was executed")
-            // setProxy(response.data);
+
+
+
+            console.log("this is proxy response data " + JSON.stringify(response.data))
+            setProxy(response.data);
+
+            console.log("this is proxy state variable data " + proxy.length)
           }
           );
       }
@@ -332,50 +335,54 @@ function RequestForHodCard(props) {
                         border: "1px solid black",
                         backgroundColor: "whitesmoke",
                       }}
-                      colSpan={4}
+                      colSpan={3}
                     >
                       Name of Sign. of Person Agreed
                     </th>
+                    <th
+                      style={{
+                        border: "1px solid black",
+                        backgroundColor: "whitesmoke",
+                      }}
+                      colSpan={3}
+                    >
+                      Status
+                    </th>
                   </tr>
+                  {proxy.map((item) => (
+                    <tr style={{ border: "1px solid black" }}>
+                      <td style={{ border: "1px solid black" }} colSpan={2}>
+                        {new Date(item.forDate).toLocaleDateString('en-GB')}
+                      </td>
+                      <td style={{ border: "1px solid black" }}>others</td>
+                      <td style={{ border: "1px solid black" }}>{item.section}</td>
+                      <td style={{ border: "1px solid black" }}>{item.lecture}</td>
+                      <td style={{ border: "1px solid black" }} colSpan={3}>
 
-                  <tr style={{ border: "1px solid black" }}>
-                    <td style={{ border: "1px solid black" }} colSpan={2}>
-                      18-05-199
-                    </td>
-                    <td style={{ border: "1px solid black" }}>C programming</td>
-                    <td style={{ border: "1px solid black" }}>8A</td>
-                    <td style={{ border: "1px solid black" }}>nine</td>
-                    <td style={{ border: "1px solid black" }} colSpan={4}>
-                      {" "}
-                      Utkarsh Tripathi
-                    </td>
-                  </tr>
 
-                  <tr style={{ border: "1px solid black" }}>
-                    <td style={{ border: "1px solid black" }} colSpan={2}>
-                      18-05-199
-                    </td>
-                    <td style={{ border: "1px solid black" }}>C programming</td>
-                    <td style={{ border: "1px solid black" }}>8A</td>
-                    <td style={{ border: "1px solid black" }}>nine</td>
-                    <td style={{ border: "1px solid black" }} colSpan={4}>
-                      {" "}
-                      Utkarsh Tripathi
-                    </td>
-                  </tr>
+                        {item.name}
+                      </td>
+                      <td style={{ border: "1px solid black" }} colSpan={3}>
 
-                  <tr style={{ border: "1px solid black" }}>
-                    <td style={{ border: "1px solid black" }} colSpan={2}>
-                      18-05-199
-                    </td>
-                    <td style={{ border: "1px solid black" }}>C programming</td>
-                    <td style={{ border: "1px solid black" }}>8A</td>
-                    <td style={{ border: "1px solid black" }}>nine</td>
-                    <td style={{ border: "1px solid black" }} colSpan={4}>
-                      {" "}
-                      Utkarsh Tripathi
-                    </td>
-                  </tr>
+
+                        {item.status}
+                      </td>
+
+                    </tr>))}
+
+
+                  {/* {data.map((item) => (
+          <li key={item.requestId}>
+            <p>Request ID: {item.requestId}</p>
+            <p>Emp ID: {item.empId}</p>
+            <p>Other Emp ID: {item.otherEmpId}</p>
+            <p>For Date: {item.forDate}</p>
+            <p>Section: {item.section}</p>
+            <p>Lecture: {item.lecture}</p>
+            <p>Reason: {item.reason}</p>
+            <p>Status: {item.status}</p>
+          </li> */}
+
                   <tr>
                     <td>
                       <button

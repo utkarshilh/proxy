@@ -31,7 +31,7 @@ export default function AllAppliedRequest(props) {
 
     return (
         <div>
-            <h1 className='text-center'>All Applied Arragement Request </h1>
+            <h1 className='text-center'>All Response Of Arragement Request </h1>
 
             {request.map((val) => {
                 return (
@@ -65,7 +65,7 @@ export default function AllAppliedRequest(props) {
                                     marginBottom: '8px'
                                 }}>
                                     <span style={{ fontWeight: 'bold' }}>Date:</span>
-                                    <span style={{ marginLeft: '4px' }}>{val.forDate.split('T')[0]}</span>
+                                    <span style={{ marginLeft: '4px' }}>{new Date(val.forDate).toLocaleDateString('en-GB')}</span>
 
                                 </div>
                                 <div style={{
@@ -82,6 +82,24 @@ export default function AllAppliedRequest(props) {
                                     <span style={{ fontWeight: 'bold' }}>Lecture:</span>
                                     <span style={{ marginLeft: '8px' }}>{val.lecture}</span>
                                 </div>
+
+                                <div style={{
+                                    display: 'flex',
+                                    flexDirection: 'row'
+                                }}>
+
+                                    {
+                                        (val.status == 'accepted') ?
+                                            (<div>
+                                                <span style={{ fontWeight: 'bold' }}>Accepted By</span>
+                                                <span style={{ marginLeft: '8px' }}>{val.otherEmpId} : {"  "}{val.name}</span>
+                                            </div>) : (null)
+                                    }
+
+
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
