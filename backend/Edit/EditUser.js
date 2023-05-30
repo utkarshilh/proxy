@@ -20,9 +20,9 @@ router.get("/api/get", (req, res) => {
 //To update the data of users-->
 router.put("/api/update/:empId", (req, res) => {
     const { empId } = req.params;
-    const { name, Email, ContactNo } = req.body;
-    const sqlUpdate = "UPDATE loginpage SET name = ?, Email=?, ContactNo=? WHERE empId = ?";
-    db.query(sqlUpdate, [name, Email, ContactNo, empId], (error, result) => {
+    const { name, Email, ContactNo, Department, role } = req.body;
+    const sqlUpdate = "UPDATE loginpage SET name = ?, Email=?, ContactNo=?, Department=?, role=? WHERE empId = ?";
+    db.query(sqlUpdate, [name, Email, ContactNo,Department, role, empId], (error, result) => {
         if (error) {
             console.log(error);
         }

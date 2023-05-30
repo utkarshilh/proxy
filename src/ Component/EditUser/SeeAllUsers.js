@@ -70,7 +70,7 @@ function SeeAllUsers(props) {
                   <td className="Seetablecol">{item.Gender}</td>
                   <td className="Seetablecol">{item.Department}</td>
                   <td className="Seetablecol">{item.ContactNo}</td>
-                  <td className="Seetablecol">{item.dateOfJoining}</td>
+                  <td className="Seetablecol">{new Date(item.dateOfJoining).toLocaleDateString('en-GB')}</td>
                 </tr>
               );
             })}

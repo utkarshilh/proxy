@@ -32,32 +32,40 @@ import "./view.css";
        {/*  <div className="cardView">*/}
             <div className="card-headerView">
 
-              <p ><h4 style={{paddingTop:'10px'}}>User Contact Detail</h4></p>
+              <p ><h4 style={{paddingTop:'10px'}}>Faculty  Details</h4></p>
 
             </div>
 
             <div className="containerView">
 
-              <strong>ID:</strong>
+              <strong>ID:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
               <span>{empId}</span>
               <br/>
               <br/>
 
 
-              <strong>Name:</strong>
+              <strong>Name:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
               <span>{user.name}</span>
               <br/>
               <br/>
               
 
-              <strong>Email:</strong>
+              <strong>Email:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
               <span>{user.Email}</span>
               <br/>
               <br/>
-              
+              <strong>Roll:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+              <span>{user.roll}</span>
+              <br/>
+              <br/>
 
-              <strong>Contact</strong>
+              <strong>Contact:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
               <span>{user.ContactNo}</span>
+              <br/>
+              <br/>
+
+              <strong>Department:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+              <span>{user.Department}</span>
               <br/>
               <br/>
 

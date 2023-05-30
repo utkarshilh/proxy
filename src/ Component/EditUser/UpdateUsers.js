@@ -1,157 +1,140 @@
-import { useState, useEffect } from "react";
-import {useNavigate, useParams, Link,  } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import "./UpdateUsers.css";
 import axios from "axios";
-import{toast} from "react-toastify";
+import { toast } from "react-toastify";
 
-
-
-
-
-
-const initialState={
-    name:"",
-    Email:"",
-    ContactNo:""
-
+const initialState = {
+  name: "",
+  Email: "",
+  ContactNo: "",
+  Department: "",
+  role: ""
 };
 
-
- function UpdateUsers( props) {
+function UpdateUsers(props) {
   console.log(props.updateUser.currentUser);
- // const empId = props.updateUser.currentUser;
 
+  const [state, setState] = useState(initialState);
+  const { name, Email, ContactNo, Department, role } = state;
 
+  const { empId } = useParams();
+  const navigate = useNavigate();
 
-   const[state, setState]=useState(initialState);
-   const {name, Email, ContactNo}=state;
- 
-   //const history=useNavigate();
-   const {empId} = useParams();
-   //const {dday}=useParams 
-   const navigate = useNavigate();
+  useEffect(() => {
+    axios.get(`/api/get/${empId}`)
+      .then((resp) => setState({ ...resp.data[0] }));
+  }, [empId]);
 
-
-/*   
-function a(props){
-  alert(props.data)
-}*/
-   
-   useEffect(()=>{
-      axios
-      .get(`/api/get/${empId}`)
-      .then((resp)=> setState({...resp.data[0]}));
-      
-     // alert(empId)
-     // alert(emp)
-
-   }, [empId]);
-
-   const handleSubmit=(e)=>{
-      e.preventDefault();
-      if(!name || !Email || !ContactNo){
-        toast.error("Please provide value into each input field");
-      }else{
-        if(!empId){
-          axios.post("/api/post", {
-            name,
-            Email,
-            ContactNo  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name || !Email || !ContactNo) {
+      toast.error("Please provide a value for each input field");
+    } else {
+      if (!empId) {
+        axios.post("/api/post", {
+          name,
+          Email,
+          ContactNo,
+          Department,
+          role
+        })
+          .then(() => {
+            setState(initialState);
+            toast.success("Contact added successfully!");
           })
-          .then(()=>{
-            setState({name:"", Email:"", ContactNo:""})
+          .catch((err) => toast.error(err.response.data));
+      } else {
+        axios.put(`/api/update/${empId}`, {
+          name,
+          Email,
+          ContactNo,
+          Department,
+          role
+        })
+          .then(() => {
+            setState(initialState);
+            window.alert("Contact updated successfully!"); // Show alert message
           })
-          .catch((err)=>toast.error(err.response.date));
-          toast.success("contact Added successfully!");
-        }else{
-          axios.put(`/api/update/${empId}`, {
-            name,
-            Email,
-            ContactNo  
-          })
-          .then(()=>{
-            setState({name:"", Email:"", ContactNo:""})
-            alert("successfull insert");
-          })
-          .catch((err)=>toast.error(err.response.date));
-          toast.success("contact updated  successfully!");
-
-        }
-         // setTimeout(() =>{navigate(alert("updated successfully"))});
+          .catch((err) => toast.error(err.response.data));
       }
-   };
+    }
+  };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setState({ ...state, [name]: value });
+  };
 
+  return (
+    <div style={{ marginTop: "100px" }}>
+      <form
+        style={{
+          margin: "auto",
+          padding: "15px",
+          maxWidth: "400px",
+          alignContent: "center",
+          marginLeft:'400px'
+        }}
+        onSubmit={handleSubmit}
+      >
+        <label htmlFor="name"><strong>Name</strong></label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name..."
+          value={name}
+          onChange={handleInputChange}
+        />
 
+        <label htmlFor="email"><strong>Email</strong></label>
+        <input
+          type="email"
+          id="email"
+          name="Email"
+          placeholder="Your Email..."
+          value={Email}
+          onChange={handleInputChange}
+        />
 
+        <label htmlFor="contact"><strong>ContactNo</strong></label>
+        <input
+          type="number"
+          id="contact"
+          name="ContactNo"
+          placeholder="Your Contact No..."
+          value={ContactNo}
+          onChange={handleInputChange}
+        />
 
+        <label htmlFor="department"><strong>Department</strong></label>
+        <input
+          type="text"
+          id="department"
+          name="Department"
+          placeholder="Your Department..."
+          value={Department}
+          onChange={handleInputChange}
+        />
 
-   
+        <label htmlFor="role"><strong>Role</strong></label>
+        <input
+          type="text"
+          id="role"
+          name="role"
+          placeholder="Your Role..."
+          value={role}
+          onChange={handleInputChange}
+        />
 
-   const handleInputChange=(e)=>{
-    const {name, value}=e.target;
-    setState({...state, [name]:value});
-   };
+        <input type="submit" value={empId ? "Update" : "Save"} />
+        <Link to="/editusers">
+          <input type="button" value="Go Back" />
+        </Link>
+      </form>
+    </div>
+  );
+}p
 
-    return (
-      <div style={{marginTop:"100px"}}>
-         <form style={{
-            margin:"auto",
-            padding:"15px",
-            maxWidth:"400px",
-            alignContent:"center"
-         }} 
-
-           onSubmit={handleSubmit}
-         >
-            <label htmlFor="name">Name</label>
-            <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="your Name....."
-            value={name || ""}
-            onChange={handleInputChange}
-             />
-
-            
-            <label htmlFor="email">Email</label>
-            <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="your email....."
-            value={Email || ""}
-            onChange={handleInputChange}
-             />
-
-
-            <label htmlFor="contact">ContactNo</label>
-            <input
-            type="number"
-            id="contact"
-            name="contact"
-            placeholder="your contact No....."
-            value={ContactNo || ""}
-            onChange={handleInputChange}
-             />
-
-
-
-          <input type="submit" value={empId ? "update":"save"}/>
-          <Link to="/editusers">
-          <input type="button" value="Go Back"/>
-          </Link>
-
-
-
-
-
-
-         </form>
-      </div>
-    )
-  }
-
-
-export default UpdateUsers
+export default UpdateUsers;

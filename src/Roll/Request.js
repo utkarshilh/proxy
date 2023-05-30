@@ -82,7 +82,7 @@ export default function Request(props) {
                         <div class="card__corner-triangle"></div>
                       </div>
                       <Link className="nav-link" to="/allleaverequest">
-                        <div class="profile">
+                         <div class="profile">
                           <img
                             src=" https://drive.google.com/uc?export=view&id=12ESF6YtSph4L_NDdFjCt9enEiU0PhdxK"
                             className="icon"
@@ -97,7 +97,7 @@ export default function Request(props) {
                             }}
                           >
                             <p style={{ marginTop: "10px" }}>
-                              LeaveRequestDetails
+                              LeaveRequest Of Hod Details
                             </p>
                           </label>
                         </div>
@@ -120,6 +120,7 @@ export default function Request(props) {
                             style={{
                               backgroundColor: "rgb(215, 235, 242)",
                               width: "200px",
+                             left:'0px',
                               borderBottomLeftRadius: "10px",
                               borderBottomRightRadius: "10px",
                             }}
