@@ -71,6 +71,43 @@ app.get('/api/allRequestedLeave/:empId', (req, res) => {
 })
 
 
+
+
+
+
+
+
+
+
+
+// all accepted arrangement Request 
+app.post('/api/AllAcceptedArrangementRequest', (req, res) => {
+
+
+console.log("This is body..."+JSON.stringify(req.body));
+  const empId = req.body.empId;
+
+
+  const sqlSelect = "SELECT proxy.LoginPage.name, proxy.ArrangementMainRequest.* FROM proxy.ArrangementMainRequest INNER JOIN proxy.loginPage ON proxy.ArrangementMainRequest.empId = proxy.LoginPage.empId WHERE proxy.ArrangementMainRequest.otherEmpId = ? AND proxy.ArrangementMainRequest.status = 'accepted' ";
+
+  db.query(sqlSelect, [empId], (err, result) => {
+    if (err)
+      console.log(err);
+    else {
+      console.log("this is result " + JSON.stringify(result))
+      res.send(result);
+
+    }
+
+  })
+
+})
+
+
+
+
+
+
 // to find the the current section he is teachign according to his time table--->
 app.post("/api/getTheSection", (req, res) => {
   const empId = req.body.empId;
@@ -287,6 +324,28 @@ app.post("/api/getallappliedarrangementdetail", (req, res) => {
     }
   });
 });
+
+
+app.post("/api/getallappliedarrangementdetail", (req, res) => {
+  const empId = req.body.empId;
+  console.log("this section is not executed hello" + empId);
+
+  const query1 = "SELECT proxy.ArrangementMainRequest.* , proxy.loginPage.name FROM proxy.ArrangementMainRequest Inner join proxy.loginPage on proxy.ArrangementMainRequest.empId = proxy.loginPage.empId where proxy.ArrangementMainRequest.empID = ?";
+
+  db.query(query1, [empId], (err, result) => {
+    if (err) console.log(err);
+    else {
+      console.log("this is the latest result" + JSON.stringify(result));
+      res.send(result);
+    }
+  });
+});
+
+
+
+
+
+
 
 app.listen(3001, () => {
   console.log("running on port 3001");

@@ -39,7 +39,7 @@ import RequestForHod from '../Roll/RequestForHod';
 import RequestForHodCard from '../Roll/RequestForHodCard';
 import RollofFaculty from '../Roll/RollofFaculty';
 import ControlHodAdmin from '../Roll/ControlHodAdmin';
-import Hello from './Hello';
+
 
 
 export default function Severalpage(props) {
@@ -54,7 +54,7 @@ export default function Severalpage(props) {
             <Routes>
 
               {/*  My Profile   */}
-                 <Route exact path="/x" element={<MyProfile updateUser={props} />}></Route>
+                 <Route exact path="/" element={<MyProfile updateUser={props} />}></Route>
                  <Route exact path="/profile" element={<MyProfile updateUser={props} />}></Route>
 
 
@@ -86,7 +86,7 @@ export default function Severalpage(props) {
                 <Route exact path="/roll" element={<RollofFaculty updateUser={props} />}></Route>
                 <Route exact path="/pqr" element={<ControlHodAdmin updateUser={props} />}></Route>       
                 <Route exact path="/allrequestforhod" element={<RequestForHod updateUser={props} />} />
-                <Route exact path="/" element={<Hello updateUser={props} />} />
+               
                 
 
             </Routes>

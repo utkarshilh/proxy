@@ -8,7 +8,7 @@
 }
 
 .card-headerView{
-    height: 15%;
+    height: 25%;
     background: #5d6770;
     color: white;
     text-align: center;
@@ -20,4 +20,5 @@
 
 .containerView{
     padding: 4px 16px;
+    height: 400px;
 }
